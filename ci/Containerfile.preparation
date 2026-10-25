@@ -1,0 +1,22 @@
+FROM docker.io/library/python@sha256:2b4f19dae3a777dfc3b76730bda1e82e1f66ab2a2686fa93ca78edbfb4f04ffe
+ARG DISTRIBUTION_REVISION
+LABEL org.opencontainers.image.revision="${DISTRIBUTION_REVISION}"
+RUN rm -f /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list \
+    && printf '%s\n' \
+       'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20261017T000000Z/ trixie main' \
+       'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian-security/20261017T000000Z/ trixie-security main' \
+       > /etc/apt/sources.list
+COPY verify_snapshot.py /tmp/verify_snapshot.py
+RUN apt-get update \
+    && python3 /tmp/verify_snapshot.py /var/lib/apt/lists \
+    && apt-get install -y --no-install-recommends git ansible-core sleuthkit e2fsprogs xfsprogs \
+    && mkdir -p /opt/eng-provenance \
+    && dpkg-query -W -f='${binary:Package}\t${Version}\t${Architecture}\n' > /opt/eng-provenance/debian-packages.tsv \
+    && cp /etc/apt/sources.list /opt/eng-provenance/apt-sources.list \
+    && rm -rf /var/lib/apt/lists/* /tmp/verify_snapshot.py
+COPY provider-requirements.txt /tmp/provider-requirements.txt
+COPY windows.zip /opt/eng-symbols/windows.zip
+RUN python3 -m pip --isolated install --index-url https://pypi.org/simple --no-cache-dir --require-hashes --only-binary=:all: -r /tmp/provider-requirements.txt \
+    && python3 -m pip --isolated freeze > /opt/eng-provenance/python-packages.txt \
+    && rm /tmp/provider-requirements.txt \
+    && chmod 0644 /opt/eng-symbols/windows.zip

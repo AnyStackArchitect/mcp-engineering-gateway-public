@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "site_id": "example",
+  "hostname": "lab-example",
+  "profile": "rocky10-ssh-rootless-draft",
+  "source_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "gateway": {"name": "engbox_gateway", "uid": 2200, "gid": 2200, "home": "/home/engbox_gateway"},
+  "worker": {"name": "rocky-eng-worker", "uid": 2201, "gid": 2201, "home": "/home/rocky-eng-worker", "subid_start": 200000, "subid_count": 65536},
+  "paths": {"code": "/opt/rocky-eng", "config": "/etc/rocky-eng", "runtime": "/run/rocky-eng"},
+  "min_free_bytes": 1073741824,
+  "min_runtime_free_bytes": 16777216
+}

@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "date": "2026-10-25",
+  "grantor": "Eric Black",
+  "default_original_project_license": "MIT",
+  "default_license_file": "LICENSE",
+  "grant": "Eric Black grants recipients an additional license under Volatility Software License version 1.0 for the owner-authored portions precisely identified here. This supplemental grant does not revoke, narrow, replace or make conditional any MIT permissions previously granted, and grants no rights on behalf of third-party owners.",
+  "license_id": "LicenseRef-VSL-1.0",
+  "license_text": "licenses/VOLATILITY3-2.28.2.txt",
+  "license_text_sha256": "6e905a859f6d5ebf23d4b7cdfb8ac425c4ec5dd02b3b274901a967f3e452eb37",
+  "upstream_license_source": "https://raw.githubusercontent.com/volatilityfoundation/volatility3/v2.28.2/LICENSE.txt",
+  "scope_rule": "Exact file hashes bind source; semantic selectors control mixed lines/spans, which are locators rather than grants over unrelated code. Re-review when a listed file hash changes. No whole mixed file is relicensed.",
+  "historical_application": "This supplemental grant also applies to the identical identified owner-authored content wherever the listed file SHA-256 and semantic portions occur in preserved distribution history, including earlier preparation commits without this metadata. No history is rewritten and prior MIT grants remain intact.",
+  "components": [
+    {
+      "path": "windows_memory_runner.py",
+      "sha256": "8876c98fdbdb3894fb574dd7296b5b36f6b1263474ff03ef0be15a39a4abacc4",
+      "owner": "Eric Black",
+      "copyright": "Copyright (c) 2026 Eric Black",
+      "additional_license": "LicenseRef-VSL-1.0",
+      "scope_type": "whole dedicated integration file",
+      "spans": [
+        {
+          "start_line": 1,
+          "end_line": 132,
+          "line_span_utf8_lf_sha256": "8876c98fdbdb3894fb574dd7296b5b36f6b1263474ff03ef0be15a39a4abacc4",
+          "semantic_selector": "Entire dedicated Windows-memory Volatility adapter."
+        }
+      ]
+    },
+    {
+      "path": "provider_runner.py",
+      "sha256": "9a6789043fff58f9f150db773bcda66bf2e9d9ce77fee81f5ea54ab8aae7066e",
+      "owner": "Eric Black",
+      "copyright": "Copyright (c) 2026 Eric Black",
+      "additional_license": "LicenseRef-VSL-1.0",
+      "scope_type": "semantic portions only; unrelated portions remain MIT",
+      "spans": [
+        {
+          "start_line": 20,
+          "end_line": 20,
+          "line_span_utf8_lf_sha256": "d8283787e7930e2702f537c21b52a59413365b8277742d825c2a8d9c8c6d0e34",
+          "semantic_selector": "TOOLS['volatility_banners'] entry only."
+        },
+        {
+          "start_line": 143,
+          "end_line": 157,
+          "line_span_utf8_lf_sha256": "7f17372bc71d2682e066fa4aaaad68a22c112a4528b8482841d1531424aab8cc",
+          "semantic_selector": "run(): only final Volatility banners.Banners invocation, JSON parsing, bounded offsets and PARTIAL result branch."
+        }
+      ]
+    },
+    {
+      "path": "providerplans.py",
+      "sha256": "f098bec2409677a832742e029db93a05b3a609b5d76772b32447d722831a7bdb",
+      "owner": "Eric Black",
+      "copyright": "Copyright (c) 2026 Eric Black",
+      "additional_license": "LicenseRef-VSL-1.0",
+      "scope_type": "semantic portions only; unrelated portions remain MIT",
+      "spans": [
+        {
+          "start_line": 17,
+          "end_line": 17,
+          "line_span_utf8_lf_sha256": "e2d7d7b5fedf66d49bd3bd80e365e654e4711cbce1625bbc24cd3781fcf6ccd0",
+          "semantic_selector": "PROVIDERS['volatility_banners'] descriptor."
+        },
+        {
+          "start_line": 20,
+          "end_line": 20,
+          "line_span_utf8_lf_sha256": "0beb5c8a77e17e720d64ee629e3b0ba7e9e8f311f44c24cbfb554258724179f7",
+          "semantic_selector": "PROVIDERS['windows_memory_info'] descriptor."
+        },
+        {
+          "start_line": 35,
+          "end_line": 38,
+          "line_span_utf8_lf_sha256": "8a9c6ef45f487fcfb6ec4d1e4518751f006f3c2a671ac304f43c69d989b1f118",
+          "semantic_selector": "script_for(): Windows-only exact Volatility version, symbol-pack validation and config binding."
+        },
+        {
+          "start_line": 42,
+          "end_line": 43,
+          "line_span_utf8_lf_sha256": "71a56759d9b60daa50348ce068867598a7abe7b122b8f431c390fd9fc0030940",
+          "semantic_selector": "script_for(): windows_memory_runner.py selection/embedding when windows_memory_info only. XFS alternative and generic capture extraction remain MIT."
+        },
+        {
+          "start_line": 57,
+          "end_line": 57,
+          "line_span_utf8_lf_sha256": "5f877bbe13dd0e2f54f85a3eab0db7a833a6503432cd26fb362f17db1e493ac6",
+          "semantic_selector": "checked_script(): Windows-specific symbols_sha256 config member selection only."
+        },
+        {
+          "start_line": 67,
+          "end_line": 67,
+          "line_span_utf8_lf_sha256": "e3190497e4fd96f76ca720d7bbe2076349348c1cae9a30119da6982a13d776ff",
+          "semantic_selector": "catalog(): Windows-memory 4096 MiB input tier only."
+        },
+        {
+          "start_line": 74,
+          "end_line": 74,
+          "line_span_utf8_lf_sha256": "e6abae99253193201ce89e40e473ae3293dfc9cadd724682682d20924bdc11fa",
+          "semantic_selector": "catalog(): Windows-memory qualification-limit declaration."
+        },
+        {
+          "start_line": 83,
+          "end_line": 83,
+          "line_span_utf8_lf_sha256": "0a673dfa23ff45efcc32a6b058417e21140843db2b32518e12a2a92e68753642",
+          "semantic_selector": "plan(): Windows-memory 4096 MiB tier only."
+        },
+        {
+          "start_line": 150,
+          "end_line": 150,
+          "line_span_utf8_lf_sha256": "6ecfb3a752d5fed9159cde77bd77d69baf425ddce57d5897cd036b9d93f5c234",
+          "semantic_selector": "checked_result(): Windows-memory allowed metric entry."
+        },
+        {
+          "start_line": 152,
+          "end_line": 152,
+          "line_span_utf8_lf_sha256": "0d2a52f5001eca3adf80cfdbc9daa37590b7255374999cc9d4f37ab5be463106",
+          "semantic_selector": "checked_result(): volatility_banners allowed metric entry."
+        },
+        {
+          "start_line": 155,
+          "end_line": 156,
+          "line_span_utf8_lf_sha256": "e5351e5bedfe78966b8f659f922a7add8f094903f48aae50a92fd4f656005ab0",
+          "semantic_selector": "checked_result(): only memory_os_validated/kernel_information_parsed/process_analysis_performed boolean validation; other keys remain MIT."
+        },
+        {
+          "start_line": 159,
+          "end_line": 166,
+          "line_span_utf8_lf_sha256": "254695798a1f7e5b5595ec55ee57be698ff0c424c85cfcee8a457ff1ab17e4d6",
+          "semantic_selector": "checked_result(): banner-offset bounds, Windows symbol hash binding and Windows-memory failure-reason allowlist."
+        },
+        {
+          "start_line": 173,
+          "end_line": 173,
+          "line_span_utf8_lf_sha256": "9279242d1b945cc6d420583aa5a2049346b95e7f92ded4b272ce2d6fbcc7e65d",
+          "semantic_selector": "checked_result(): required-metric selections for volatility_banners/windows_memory_info only."
+        },
+        {
+          "start_line": 176,
+          "end_line": 178,
+          "line_span_utf8_lf_sha256": "27bda7ca9ce066d7ba9a6540f9729eda5841fe40e80206b96c197ebee3f1adf9",
+          "semantic_selector": "checked_result(): Volatility banner PARTIAL/count/offset/unknown-memory-OS invariant only; Ansible condition and generic error machinery remain MIT."
+        },
+        {
+          "start_line": 183,
+          "end_line": 184,
+          "line_span_utf8_lf_sha256": "838a709e7c104d92ec39c1bfad143d286992982fcb9047405f0d04f6bc931151",
+          "semantic_selector": "checked_result(): Windows-memory PARTIAL, version, architecture and kernel-info invariants."
+        },
+        {
+          "start_line": 223,
+          "end_line": 224,
+          "line_span_utf8_lf_sha256": "f9c10fa5fb925a80730d4bfc21a8c1767c4dfb7fa85d4a1da7234de9cdbb420c",
+          "semantic_selector": "read_result(): Volatility banner offsets versus approved-source-length check."
+        }
+      ]
+    },
+    {
+      "path": "scripts/qualify_windows_memory.py",
+      "sha256": "89054d0e34b576628662874007e8ead75574819265164c24bab5a225925775c9",
+      "owner": "Eric Black",
+      "copyright": "Copyright (c) 2026 Eric Black",
+      "additional_license": "LicenseRef-VSL-1.0",
+      "scope_type": "whole dedicated integration file",
+      "spans": [
+        {
+          "start_line": 1,
+          "end_line": 77,
+          "line_span_utf8_lf_sha256": "89054d0e34b576628662874007e8ead75574819265164c24bab5a225925775c9",
+          "semantic_selector": "Entire dedicated Windows-memory qualification support; generic imported utilities remain separately MIT."
+        }
+      ]
+    },
+    {
+      "path": "scripts/qualify_provider_plans.py",
+      "sha256": "9991163add6477fe0a426dcc39b2639c0d9f6ca510999c9bc6224967892b30ca",
+      "owner": "Eric Black",
+      "copyright": "Copyright (c) 2026 Eric Black",
+      "additional_license": "LicenseRef-VSL-1.0",
+      "scope_type": "semantic portions only; unrelated portions remain MIT",
+      "spans": [
+        {
+          "start_line": 25,
+          "end_line": 25,
+          "line_span_utf8_lf_sha256": "d8283787e7930e2702f537c21b52a59413365b8277742d825c2a8d9c8c6d0e34",
+          "semantic_selector": "PROBES['volatility_banners'] only."
+        },
+        {
+          "start_line": 50,
+          "end_line": 50,
+          "line_span_utf8_lf_sha256": "4e4849dc5178de6f4e1636d3ec03cb8e8749d3c96760d0eb7c4e99f55ca35df4",
+          "semantic_selector": "Exact Volatility version requirement."
+        },
+        {
+          "start_line": 72,
+          "end_line": 73,
+          "line_span_utf8_lf_sha256": "a81fcc6f61355a55437c3a8937520c02434066f7bae90ecbda17625e246ad165",
+          "semantic_selector": "Synthetic banner-bearing memory fixture."
+        },
+        {
+          "start_line": 82,
+          "end_line": 82,
+          "line_span_utf8_lf_sha256": "774c8e9bfd7621cabb5d659dc53274fa5a3157ce6a42989c27cbabc37b47ed66",
+          "semantic_selector": "Synthetic no-banner memory fixture."
+        },
+        {
+          "start_line": 88,
+          "end_line": 88,
+          "line_span_utf8_lf_sha256": "e2c44621383e470c87a2fdced645ccadb41492535d907d23209062763c0d65ac",
+          "semantic_selector": "Two volatility_banners vector tuples only; adjacent Ansible tuple remains MIT."
+        },
+        {
+          "start_line": 125,
+          "end_line": 127,
+          "line_span_utf8_lf_sha256": "a76a4271cb023892bd4389155078020bb2328c11043f496c93d69185d39384a7",
+          "semantic_selector": "Volatility banner-count/offset known-answer assertions only."
+        }
+      ]
+    }
+  ],
+  "retained_MIT_examples": [
+    "provider_runner.py:bounded_command and shared execution/resource/error handling",
+    "providerplans.py:generic planning/hash/capacity/broker/result plumbing and Git/Ansible/TSK/XFS portions",
+    "scripts/qualify_provider_plans.py:generic orchestration and non-Volatility fixtures/assertions",
+    "ci/provider-requirements.txt:dependency recipe",
+    "ci/image_inventory.py:generic dependency inventory"
+  ],
+  "public_source_condition": {
+    "status": "PRIVATE_PENDING_SEPARATE_PUBLIC_VISIBILITY_GO",
+    "intended_repository": "https://github.com/AnyStackArchitect/Mcp-eng-gw-public",
+    "prepared_branch": "prepare/phase1-public-source-candidate",
+    "prepared_source_url": "https://github.com/AnyStackArchitect/Mcp-eng-gw-public/tree/prepare/phase1-public-source-candidate",
+    "release_rule": "At external distribution, make exact released revision, covered editable preferred-form source, scope map, license text and notices freely accessible. This prepared branch is not claimed public; private push/local commit is insufficient."
+  },
+  "generated_script_redistribution": {
+    "runtime_bytes_changed": false,
+    "templates": [
+      "providerplans.script_for(\"windows_memory_info\", ...)",
+      "providerplans.script_for(\"volatility_banners\", ...)"
+    ],
+    "rule": "Accompany redistributed generated scripts with COMPONENT_LICENSES.json, docs/COMPONENT_LICENSING.md, LICENSE, full VSL/copyright notices and the exact freely accessible preferred-form source revision or required editable source; preserve source mapping. Do not modify signed/validated script bytes merely to inject notices; accompany them with the files. Generic injected bounded_command remains MIT.",
+    "privacy": "Licensing does not authorize disclosure of CONFIG values, evidence, paths, case data or results."
+  },
+  "rights_not_granted": [
+    "Volatility Foundation copyright remains its own",
+    "Windows symbol acquisition/use entitlement",
+    "Symbols/test dumps redistribution",
+    "Prebuilt image publication"
+  ],
+  "no_feature_removal": true,
+  "runtime_unchanged": true
+}

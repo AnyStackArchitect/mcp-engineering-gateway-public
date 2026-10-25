@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [Practical workflows](analysis-workflows.md) / [Tool catalog](tool-catalog.md) / [Architecture](architecture.md) / [Extensions](extensions.md)
 
-This is a walkthrough of the qualified candidate's workflow, **not an executable tutorial for this documentation-only branch**. Wait for approved source publication and the corresponding installation/client instructions. Use a new authorized installation with synthetic data first.
+This page explains the workflow. Use the [executable first-analysis manual](client-first-analysis.md) with the exact combined source package and an approved installed target; the revised reader-led execution remains NOT RUN. Use a new authorized installation with synthetic data first.
 
 ## Connect and establish evidence identity
 
@@ -14,7 +14,7 @@ Use `log_index` followed by `log_search` for the known marker. Inspect its sourc
 
 ## Understand fixed jobs
 
-`job_submit` queues fixed built-in work such as `verify_case`; `job_status` and `job_result` observe it. Processing requires the installed `jobwork.py` CLI under the **gateway account**, using its foreground loop or one-job mode. The detailed source-release instructions will supply its invocation. It must not run as root or as the sandbox worker.
+`job_submit` queues fixed built-in work such as `verify_case`; `job_status` and `job_result` observe it. Processing requires the installed `jobwork.py` CLI under the **gateway account**, using its foreground loop or one-job mode. The [client and first-analysis tutorial](client-first-analysis.md) supplies its `--loop` and `--once` invocation. It must not run as root or as the sandbox worker.
 
 Without that processor a fixed job can correctly remain QUEUED. Its foreground session does not automatically persist across disconnect/boot. The separate signed-execution service has qualified boot persistence. Poll conservatively: each gateway process/session enforces 60 tool calls per 60-second window in memory, rather than an account-wide persistent quota. After a transport failure retain job IDs and resume observation; do not blindly repeat a mutation whose response was lost.
 

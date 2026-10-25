@@ -6,7 +6,7 @@
 
 The existing [MIT license](../LICENSE), copyright 2026 Eric Black, is preserved. It covers the original work to which it applies; it does not grant rights in every dependency, symbol, fixture or analysis input.
 
-The qualified source candidate includes precise owner-approved supplemental Volatility Software License 1.0 terms for designated Volatility integration code. Those terms preserve the original MIT permissions and are scoped through a component-license map; they do not relicense the whole project or grant rights on behalf of third parties. The matching source release must include that map, upstream license text and third-party notices. This docs-only branch does not include the adapter code or its full source-release licensing bundle.
+The qualified source candidate includes precise owner-approved supplemental Volatility Software License 1.0 terms for designated Volatility integration code. Those terms preserve the original MIT permissions and are scoped through a component-license map; they do not relicense the whole project or grant rights on behalf of third parties. This source candidate includes the [component map](../COMPONENT_LICENSES.json), [full supplemental owner grant](COMPONENT_LICENSING.md), [upstream VSL text](../licenses/VOLATILITY3-2.28.2.txt) and [third-party notices](../THIRD_PARTY_NOTICES.md). These must accompany the matching source release.
 
 Acquiring Volatility separately does not remove applicable integration-source obligations. Approved public preferred-form source access must precede matching source-asset publication. Review the exact published component map and notices when source is released.
 

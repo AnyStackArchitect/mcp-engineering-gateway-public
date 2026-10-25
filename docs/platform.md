@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [Installation path](installation.md)
 
-The initial profile is intentionally specific. The source is not yet published here, and this page is preparation guidance rather than an install command.
+The initial profile is intentionally specific. The combined candidate supplies source, but public release and the exact-package reader walkthrough are still pending. This page defines the supported profile; the linked dependency/install manual supplies commands.
 
 | Component | Qualified reference |
 |---|---|

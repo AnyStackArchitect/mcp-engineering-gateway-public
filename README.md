@@ -4,7 +4,7 @@
 
 MCP Engineering Gateway gives infrastructure engineers, operations teams and developers a common workflow for technical analysis on a Linux host. Phase I combines built-in offline analysis, fixed adapters for existing tools, evidence-linked reports and bounded Python execution in a pinned rootless container. It is a technical product for people who want to use and extend analysis tools while keeping input identity, execution authority and result limits visible.
 
-**Repository status:** the implemented Phase I candidate has completed qualification, but this repository currently contains reader documentation only. Source, installer and release assets are still held for separate publication approval. The capabilities below describe that implementation; cloning main does not install it. There is no source download offered here yet.
+**Candidate status:** this combined source candidate includes the implementation, installer/build recipes and reader manual. It preserves the previously qualified runtime, but the exact combined package still requires the documentation-led clean-host walkthrough. Source publication and release assets remain unapproved; the default remote branch may still be a documentation preview. Use only the exact source commit/package named by the candidate or release manifest. No prebuilt image is supplied.
 
 ## What is already implemented
 
@@ -63,7 +63,7 @@ Recorded validation includes 905 tests (904 passed, one intentional skip; root r
 
 ## Extending Phase I and the Phase II direction
 
-Phase I already supports operator-reviewed Python in the approved image and source-level development of fixed adapters. The [extension guide](docs/extensions.md) explains both paths and the controls a new tool must retain. Source publication is still required before readers can develop against this repository's implementation.
+Phase I already supports operator-reviewed Python in the approved image and source-level development of fixed adapters. The [extension guide](docs/extensions.md) explains both paths and the controls a new tool must retain. This source candidate can be inspected in a separate authorized development checkout; publication remains pending.
 
 Phase II is intended to add further analysis-tool integrations separately. It is future work, with no committed tool list, dates or plugin-SDK compatibility promise. [Future direction](docs/direction.md).
 
@@ -71,4 +71,6 @@ Phase II is intended to add further analysis-tool integrations separately. It is
 
 ## Build, install and use from source
 
-For the source-only release, use the [detailed operator manual](docs/install-from-source.md), [complete dependency instructions](docs/dependencies.md), [client and synthetic first-analysis tutorial](docs/client-first-analysis.md), and [operations runbook](docs/operations-runbook.md). Source publication is still pending. The [reader-led validation checklist](docs/reader-validation.md) makes clear which exact instructions remain unexecuted and what must close before the newcomer experience is qualified.
+For the source-only release, use the [detailed operator manual](docs/install-from-source.md), [complete dependency instructions](docs/dependencies.md), [client and synthetic first-analysis tutorial](docs/client-first-analysis.md), and [operations runbook](docs/operations-runbook.md). Publication is still pending. The [reader-led validation checklist](docs/reader-validation.md) makes clear which exact instructions remain unexecuted and what must close before the newcomer experience is qualified.
+
+The combined candidate keeps all 57 Linux runtime modules unchanged. The two Windows staging helpers now require an explicit endpoint and login; see [the source integration bridge](docs/source-integration.md) for the precise controller-interface change and validation scope.

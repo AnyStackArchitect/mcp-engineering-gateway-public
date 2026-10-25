@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [Capabilities](capabilities.md) / [Tool catalog](tool-catalog.md) / [Practical workflows](analysis-workflows.md) / [Future direction](direction.md)
 
-The intended audience includes technically capable users who want to bring their own tools into an evidence-oriented workflow. Phase I supplies a foundation to inspect and extend. **Source publication is pending:** today readers can review this design and define an integration's requirements; cloning this docs branch does not supply the implementation or an extension SDK.
+The intended audience includes technically capable users who want to bring their own tools into an evidence-oriented workflow. Phase I supplies a foundation to inspect and extend. **Publication is pending:** this combined candidate supplies the source to inspect in a separate development checkout, but it does not promise an extension SDK.
 
 ## Two development paths
 
@@ -14,7 +14,7 @@ Changing an enrolled image, policy or trust is a separate reviewed migration. Fr
 
 ## Candidate code map
 
-These file names describe the qualified, unpublished implementation; none is supplied by this docs-only branch. They are an orientation map for later source review, not a stable public plugin API.
+These supplied source files describe the unchanged qualified implementation. They are an orientation map, not a stable public plugin API.
 
 | Area | Source responsibilities |
 |---|---|

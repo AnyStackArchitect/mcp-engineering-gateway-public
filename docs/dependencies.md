@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Installation](install-from-source.md) / [Trust](configuration-trust.md) / [Validation ledger](reader-validation.md)
 
-**Source is not published yet.** Commands here are prepared instructions for the matching source release, not a way to install this documentation-only checkout. They have been checked against the held implementation; the new reader-led walkthrough is NOT RUN. Do not substitute a different source or dependency version to work around a refusal.
+**Source is not published yet.** Commands here target the matching complete combined source candidate. They have been checked against its unchanged runtime/tooling; the exact-package reader-led walkthrough is NOT RUN. Source presence is not permission to provision or install a host. Do not substitute a different source or dependency version to work around a refusal.
 
 ## Who installs what
 

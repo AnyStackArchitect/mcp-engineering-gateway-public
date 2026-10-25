@@ -1,0 +1,25 @@
+# Site-reviewed service template; installation and activation are separate explicit steps.
+# Root-owned target: /etc/systemd/user/rocky-eng-worker.service
+# Enable only in the selected new worker identity user manager after review.
+[Unit]
+Description=MCP Engineering Gateway Phase I isolated execution worker
+ConditionPathExists=/etc/rocky-eng/execution-policy.json
+ConditionPathExists=/etc/rocky-eng/approval_ed25519_pub.pem
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/rocky-eng
+ExecStart=/usr/bin/python3 -B -u /opt/rocky-eng/execworker.py
+Environment=HOME=/home/rocky-eng-worker
+Environment=PYTHONDONTWRITEBYTECODE=1
+UnsetEnvironment=PYTHONPATH PYTHONHOME
+UMask=0077
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+KillMode=control-group
+Delegate=yes
+TasksMax=256
+
+[Install]
+WantedBy=default.target

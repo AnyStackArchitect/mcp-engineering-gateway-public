@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*.oci.tar
+*.zip
+*.sqlite3
+*.pem
+*.key
+*.pfx
+.env

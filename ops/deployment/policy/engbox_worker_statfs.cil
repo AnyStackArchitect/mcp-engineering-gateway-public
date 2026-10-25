@@ -1,0 +1,2 @@
+; Capacity admission needs statfs metadata; no file or mount authority.
+(allow engbox_worker_t fs_t (filesystem (getattr)))

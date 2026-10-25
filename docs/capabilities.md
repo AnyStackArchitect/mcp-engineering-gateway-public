@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [Complete tool catalog](tool-catalog.md) / [Workflow examples](analysis-workflows.md)
 
-Phase I implements the functions below in qualified source candidate `6aa2aaf`. The current repository is documentation-only: source and assets remain unpublished. This page inventories implemented behavior, not a claim that every registered method has live qualification for every input.
+Phase I implements the functions below in qualified source candidate `6aa2aaf`. This combined source candidate preserves that runtime implementation; public source/assets remain unpublished. This page inventories implemented behavior, not a claim that every registered method has live qualification for every input.
 
 ## Built-in analysis
 

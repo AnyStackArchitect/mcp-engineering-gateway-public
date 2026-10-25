@@ -2,7 +2,7 @@
 
 [Repository overview](../README.md)
 
-**Current state:** documentation first. The implementation and release assets are not in this branch. The pages describe the separately qualified Phase I candidate and prepare readers for its approved source publication. They do not constitute a release download or authorize deployment.
+**Current state:** combined local source candidate, not a published release. The implementation and reviewed reader manual are present together; exact-package documentation-led clean-host acceptance remains pending. Public source/assets and deployment actions still require separate approval.
 
 ## Read in order
 
@@ -18,7 +18,7 @@
 
 ## When source publication is approved
 
-Installation will require the matching source, notices, manifests and dependency instructions. Readers should be able to verify the released commit and archive identities before running anything. File names mentioned in these pages describe that candidate; they are not links to files currently available in this documentation branch. Source publication must preserve this reader navigation and reconcile any overlapping implementation documentation through a reviewed integration.
+Installation will require the matching source, notices, manifests and dependency instructions. Readers should be able to verify the released commit and archive identities before running anything. File names mentioned in these pages refer to this source tree. Upper-case legacy operator pages redirect to the canonical lower-case reader manual, while component licensing, security and supplemental failure cases retain their detailed source-specific material.
 
 ## Source-only operator manual
 
@@ -29,6 +29,8 @@ Installation will require the matching source, notices, manifests and dependency
 - [Health, private logs, troubleshooting, backup/restore, update and safe retirement](operations-runbook.md).
 - [Traceable documentation-led qualification checklist and open limits](reader-validation.md).
 
-These pages are prepared against the held source candidate. They are not downloadable implementation files. The exact revised reader walkthrough has not been executed and must be qualified against the final source package.
+These pages and implementation now share the combined source candidate. The exact revised reader walkthrough has not been executed and must be qualified against this final source package.
 
 - [Parameterized site maintenance commands](maintenance-commands.md): correct user manager, capture/isolated restore and plan-verified code-only update/retirement, with explicit unexecuted/destructive boundaries.
+
+- [Combined candidate provenance and prior-runtime bridge](source-integration.md).

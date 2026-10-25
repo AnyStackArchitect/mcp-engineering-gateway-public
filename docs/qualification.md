@@ -2,9 +2,9 @@
 
 [Documentation index](index.md) / [Qualified platform](platform.md)
 
-This page records the separately qualified source candidate. **That source commit and its assets are not published in this docs-only branch.** No download URL or hosted-CI badge is implied. A future source publication must identify the exact released bytes and reconcile its reader documentation through review.
+This page records the qualified source/runtime predecessor and distinguishes it from the new combined source/manual candidate. **Public source/assets and exact-package reader acceptance remain pending.** No download URL or hosted-CI badge is implied. [Integration identity and evidence bridge](source-integration.md) explains how the candidate package binds its exact bytes.
 
-| Identity | Qualified candidate |
+| Identity | Qualified predecessor (not the combined package) |
 |---|---|
 | Source commit | `6aa2aaf5cc77decbe376b691c87ea30611dcc24d` |
 | Source tree | `105b0b029f982894eed802ebbb457007e360c442` |
@@ -12,7 +12,7 @@ This page records the separately qualified source candidate. **That source commi
 | Source ZIP SHA-256 | `1658a5dee5a75682816b03f7939c1704cdb8c4136a74f901ed8f522b098e9fe5` |
 | Reported runtime version | `0.52.0-dev` |
 
-Those identifiers distinguish the qualified implementation from this later documentation branch and from any future release incorporating documentation changes. No current-main hosted pass is claimed.
+Those identifiers describe the qualification predecessor. They are not the current combined ZIP identity; use its packaging provenance and accompanying candidate manifest. No current-main hosted pass is claimed.
 
 The recorded default discovery result contains 44 registered tools, including optional EVTX methods that may be unavailable without their dependencies. Configured Git and user-service observers can add two methods. This count is not a claim that each operation was exercised live for every input. The [tool catalog](tool-catalog.md) and [capability inventory](capabilities.md) distinguish implementation, prerequisites and proof scope.
 
@@ -41,3 +41,5 @@ Source-only licensing review does not clear redistribution of built images, symb
 ## Reader-instruction qualification
 
 The detailed source-only operator manual was added after the recorded implementation qualification. Prior passes are retained at their original scope; they do not count as executing these new reader instructions. [The documentation-led checklist](reader-validation.md) records all new clean-host rows NOT RUN and identifies optional dependency, symbol-entitlement, human-signing and target-specific maintenance gaps. This new reader-experience release requirement remains open.
+
+The combined candidate keeps all 57 Linux runtime modules unchanged. The two Windows staging helpers now require an explicit endpoint and login; see [the source integration bridge](source-integration.md) for the precise controller-interface change and validation scope.

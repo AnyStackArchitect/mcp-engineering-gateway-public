@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [First use](first-use.md) / [Licensing](licensing-support.md)
 
-**Source publication is pending.** This documentation-only branch cannot build or install the gateway. There are no released source assets or publisher OCI images to download here. The following describes the qualified installation sequence to evaluate before publication; execute it only with the matching approved source and its complete operator instructions.
+**Publication and exact-package reader acceptance are pending.** This combined source candidate includes the installer and build tooling. There are no released source assets or publisher OCI images to download here. Execute installation only with the matching verified source/package and an independently approved target; the detailed manual below is the canonical procedure.
 
 ## Distribution model
 
@@ -22,7 +22,7 @@ Source ZIP rebuilds were byte-identical. OCI build metadata can vary: verify eac
 6. Prepare disabled resources, compile/verify policy, and inspect the transaction. Enroll only the reviewed image and public signer, perform the nonexecuting cold image preparation and enable the signed worker's boot availability.
 7. Separately enroll the gateway's approved public SSH key. Connect the MCP client and perform synthetic first-use, negative authorization and recovery checks before bringing real evidence into the installation.
 
-In the qualified candidate these responsibilities are implemented by the `ops/deployment` tooling, `tools/doctor.py` and the image tooling. These are file references for the unpublished source, not commands or files supplied in this docs branch. Complete CLI syntax and site-specific mutation transcripts belong with the matching source release.
+In the qualified candidate these responsibilities are implemented by the `ops/deployment` tooling, `tools/doctor.py` and the image tooling. The source files are supplied in this candidate. Complete CLI syntax is in [the installation manual](install-from-source.md) and source-bound maintenance templates in [maintenance commands](maintenance-commands.md).
 
 ## Operating and retiring a site
 
@@ -36,4 +36,4 @@ Fresh-install rollback deliberately refuses activated trust/history. Safe retire
 
 ## Detailed source-only operator manual
 
-Start with [every dependency and acquisition/build procedure](dependencies.md), then [source acquisition through activation](install-from-source.md), [configuration/accounts/trust](configuration-trust.md), [client and first analysis](client-first-analysis.md), and [operations/lifecycle](operations-runbook.md). [Reader qualification checklist](reader-validation.md) distinguishes prior mechanism evidence from the exact instructions still NOT RUN. These instructions do not make this docs-only branch installable.
+Start with [every dependency and acquisition/build procedure](dependencies.md), then [source acquisition through activation](install-from-source.md), [configuration/accounts/trust](configuration-trust.md), [client and first analysis](client-first-analysis.md), and [operations/lifecycle](operations-runbook.md). [Reader qualification checklist](reader-validation.md) distinguishes prior mechanism evidence from the exact instructions still NOT RUN. Presence of these files does not close the unexecuted installed-acceptance gates.

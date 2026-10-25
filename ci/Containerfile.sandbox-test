@@ -1,0 +1,13 @@
+# Test-only image for disposable GitHub Ubuntu runners.
+# NOT an approved Rocky01 image. The final image digest must be separately
+# reviewed and pinned before ANY operator-approved execution.
+FROM docker.io/library/python@sha256:2b4f19dae3a777dfc3b76730bda1e82e1f66ab2a2686fa93ca78edbfb4f04ffe
+# ansible-core installs its matching Debian /usr/bin/python3 runtime. Volatility
+# uses the image's /usr/local Python through its hash-pinned console entrypoint.
+RUN apt-get update && apt-get install -y --no-install-recommends git ansible-core sleuthkit e2fsprogs xfsprogs \
+    && rm -rf /var/lib/apt/lists/*
+COPY provider-requirements.txt /tmp/provider-requirements.txt
+COPY windows.zip /opt/eng-symbols/windows.zip
+RUN python3 -m pip install --no-cache-dir --require-hashes -r /tmp/provider-requirements.txt \
+    && rm /tmp/provider-requirements.txt \
+    && chmod 0644 /opt/eng-symbols/windows.zip

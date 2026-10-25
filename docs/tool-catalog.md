@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [Capability overview](capabilities.md) / [Workflow examples](analysis-workflows.md)
 
-This maps the qualified, unpublished Phase I implementation. The default catalog registers **44 tools**. Two configured observers can add up to **two more**. An advertised method can still report unavailable/unsupported when its dependency, input or configuration is missing. Discovery is not execution or qualification proof. The current repository contains documentation, not these implementation files.
+This maps the qualified, unpublished Phase I implementation. The default catalog registers **44 tools**. Two configured observers can add up to **two more**. An advertised method can still report unavailable/unsupported when its dependency, input or configuration is missing. Discovery is not execution or qualification proof. These implementation files are present in this combined source candidate; publication remains pending.
 
 ## Host and gateway observations
 

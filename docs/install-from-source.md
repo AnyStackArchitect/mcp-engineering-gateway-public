@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Dependencies](dependencies.md) / [Configuration and trust](configuration-trust.md) / [First analysis](client-first-analysis.md)
 
-**Do not execute against this docs-only repository.** Source publication remains pending. This manual is bound to the qualified implementation described in [qualification](qualification.md); source integration must rebind the final commit/package/manifests and exercise these exact instructions. Administrator steps modify accounts, root-owned code, SELinux policy, images and services. Use a dedicated approved supported host, never an existing deployment.
+**Use only a verified complete source candidate and a separately approved target.** Publication remains pending. This combined source/manual preserves the implementation described in [qualification](qualification.md); its exact package identities come from packaging provenance and the accompanying candidate manifest, and these reader instructions still require clean-host execution. Administrator steps modify accounts, root-owned code, SELinux policy, images and services. Use a dedicated approved supported host, never an existing deployment.
 
 ## Roles and separate terminal sessions
 

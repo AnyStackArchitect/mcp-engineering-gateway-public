@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Install](install-from-source.md) / [First analysis](client-first-analysis.md)
 
-These instructions target the matching source release; this checkout is documentation-only. Security-sensitive key generation/enrollment must be performed deliberately by the authorized custodian/administrator, never by chat or CI.
+These instructions target this combined source candidate; public release approval and exact-package reader acceptance remain pending. Security-sensitive key generation/enrollment must be performed deliberately by the authorized custodian/administrator, never by chat or CI.
 
 ## Nonsecret site configuration
 

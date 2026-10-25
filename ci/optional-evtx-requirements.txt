@@ -1,0 +1,4 @@
+# Optional host provider; no installation is performed by this file.
+# Metadata and artifacts pinned from official PyPI version records.
+python-evtx==0.8.1 --hash=sha256:46336b854dbe0a1e75873ae30db5f583c9d2262ff1d21bdb6b1e624ecfa18ddb --hash=sha256:e96cea25536a3de5074af7f1bdbf011084d09c2e00664ab754d979820ed75fea
+hexdump==3.3 --hash=sha256:d781a43b0c16ace3f9366aade73e8ad3a7bd5137d58f0b45ab2d3f54876f20db

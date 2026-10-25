@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [Capabilities and inputs](capabilities.md) / [Tool catalog](tool-catalog.md)
 
-These examples describe implemented Phase I workflows with synthetic or independently authorized inputs. They are not executable instructions for the current docs-only repository. Source publication, a qualified installation, deliberate input staging and the relevant processor/dependencies are prerequisites. The names below are actual tool/job identifiers; returned IDs must come from that installation.
+These examples describe implemented Phase I workflows with synthetic or independently authorized inputs. They describe analysis choices rather than a copy/paste protocol session. A qualified installation from the exact selected source candidate, deliberate input staging and the relevant processor/dependencies are prerequisites. See the executable first-analysis manual for transport and returned-ID handling. The names below are actual tool/job identifiers; returned IDs must come from that installation.
 
 ## Find a log marker and preserve its context
 

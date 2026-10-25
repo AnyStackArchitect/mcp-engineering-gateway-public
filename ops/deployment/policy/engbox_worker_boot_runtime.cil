@@ -1,0 +1,2 @@
+; Confined boot tmpfiles creation of the worker runtime directory only.
+(allow systemd_tmpfiles_t engbox_worker_run_t (dir (create getattr open read search setattr)))

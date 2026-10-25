@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Install](install-from-source.md) / [Trust/signing](configuration-trust.md) / [Tool catalog](tool-catalog.md)
 
-This executable tutorial is for a newly approved installation of the matching source release. **It cannot run from this docs-only checkout and its exact reader sequence is NOT RUN.** The snippets follow implemented schemas and use synthetic inputs only. Run on the measured Windows PowerShell 5.1 controller unless a section explicitly says otherwise. Do not execute host mutations merely to review the document.
+This executable tutorial is for a newly approved installation of the matching source release. **Its exact reader sequence is NOT RUN on the combined source package.** Use a verified complete source checkout and a separately approved installed target; reading this tutorial grants no host or signing approval. The snippets follow implemented schemas and use synthetic inputs only. Run on the measured Windows PowerShell 5.1 controller unless a section explicitly says otherwise. Do not execute host mutations merely to review the document.
 
 ## 1. Configure SSH stdio in your client
 
@@ -73,7 +73,7 @@ $Staged = & (Join-Path $Source 'windows\Send-RockyEvidence.ps1') -Path $Sample -
 if ($Staged.Status -ne 'STAGED' -or $Staged.SHA256 -ne $ExpectedHash -or $Staged.Bytes -ne (Get-Item -LiteralPath $Sample).Length -or $Staged.File -ne $Destination) { throw 'Staging outcome mismatch; stop before registering' }
 ```
 
-Run the reviewed helper under your allowed PowerShell policy; do not disable execution policy to bypass a block. It requires adjacent `RockyBinaryStream.cs`, ssh/scp and the installed transfer bridge. Supply **every** connection/install parameter as shown; legacy defaults are not portable installation settings. Require the helper's actual STAGED result, matching byte count/hash and safe basename before continuing. Upload is not case import. Its receiver enforces private owner/mode, quotas and collisions; do not loosen metadata or overwrite a prior destination. For interruption use the separate `Send-RockyEvidenceResume.ps1` source instructions with the retained token and unchanged original; do not remove busy locks.
+Run the reviewed helper under your allowed PowerShell policy; do not disable execution policy to bypass a block. It requires adjacent `RockyBinaryStream.cs`, ssh/scp and the installed transfer bridge. Supply **every** connection/install parameter as shown. `RemoteHost` and `RemoteUser` are required; the supported install-directory default is `/opt/rocky-eng`, and this tutorial still passes it explicitly. Missing endpoint/login arguments fail before transport. Require the helper's actual STAGED result, matching byte count/hash and safe basename before continuing. Upload is not case import. Its receiver enforces private owner/mode, quotas and collisions; do not loosen metadata or overwrite a prior destination. For interruption use the separate `Send-RockyEvidenceResume.ps1` source instructions with the retained token and unchanged original; do not remove busy locks.
 
 ## 4. Open, register, index and search
 

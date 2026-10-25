@@ -8,7 +8,7 @@
 
 | ID | Instruction / required observation | Scope | Exact missing prerequisite or authorization | Revised sequence |
 |---|---|---|---|---|
-| DOC-01 | Acquire source and verify commit/package/closure | Baseline staged verification; later public-delivery check | Local source integration/rebinding to final proposed package must be authorized first. Staged candidate verification needs no public visibility; unauthenticated retrieval additionally waits for separate source/publication GO. | NOT RUN |
+| DOC-01 | Acquire source and verify commit/package/closure | Baseline staged verification; later public-delivery check | The combined local source/manual is now prepared. Use its exact packaging provenance and candidate manifest for staged verification; actual public unauthenticated retrieval waits for separate source/publication GO. | NOT RUN |
 | DOC-02 | Supported OS/packages, exact booted kernel, doctor and complete native inventory | Baseline | Approved clean supported guest and bounded administrator package/boot actions; actual signed package availability, including userdbctl. | NOT RUN |
 | DOC-03 | Build pinned image, exact inventory/license review and fixed vectors | Baseline full image | Approved isolated builder/network/budget and independently lawful exact symbols; current context requires symbols even for Linux-only use. | NOT RUN |
 | DOC-04 | Site/config, inventory, bundle, stage, prepare/verify | Baseline | Same approved clean target, fresh reviewed identities/subids/paths, exact source/package/manifests and bounded root preparation approval. | NOT RUN |
@@ -30,7 +30,7 @@ Each row must record exact instruction file hash, source commit/tree/package has
 
 Use a newly approved disposable supported target separate from accepted deployments, and an operator who follows only the proposed source release and these reader instructions. Approve exact host identity/resources/network/actions before mutation. Keep test-only identity/trust and recoverable evidence; do not reuse publisher keys or private scripts. No undocumented fixes: if a step needs one, mark that attempt FAIL, correct the docs/source as appropriate and rerun affected/dependent rows against the new artifact. Fixture passes do not replace installed proof. Record intentional optional SKIP separately from required NOT RUN or failure.
 
-A clean source-only release also needs public source/assets and license obligations reconciled. Before source integration, reconcile these lower-case reader pages with the candidate's existing upper-case operator docs; don't maintain contradictory duplicated manuals. Update release manifest/allowlist/checksums when authorized source integration changes bytes and regenerate package/reviews. This documentation branch intentionally does not change the held candidate or grant that integration/publication approval.
+A clean source-only release also needs public source/assets and license obligations reconciled. This local integration reconciles the lower-case reader pages with legacy upper-case operator entry pages and regenerates allowlist/checksums/package. Its exact provenance and checks are distinct from the held qualification predecessor. Further byte changes invalidate affected evidence; publication approval is still separate.
 
 ## Explicit unresolved limits
 
@@ -43,4 +43,4 @@ A clean source-only release also needs public source/assets and license obligati
 
 ## Review and execution are different gates
 
-Independent documentation review can establish command names, source contracts, role boundaries and honest expected observations without changing a host. It cannot establish that these exact instructions work end to end. Required baseline rows must pass on the actual final package; DOC-09 and DOC-14 are optional and must not reopen baseline scope. No publication/visibility permission is needed just to rehearse a staged proposed package in an approved isolated target. Actual public acquisition remains a later publication verification. Current source integration and live target actions remain unapproved by this documentation task alone.
+Independent documentation review can establish command names, source contracts, role boundaries and honest expected observations without changing a host. It cannot establish that these exact instructions work end to end. Required baseline rows must pass on the actual final package; DOC-09 and DOC-14 are optional and must not reopen baseline scope. No publication/visibility permission is needed just to rehearse a staged proposed package in an approved isolated target. Actual public acquisition remains a later publication verification. Local source integration has been approved and performed; live target actions and publication remain unapproved.

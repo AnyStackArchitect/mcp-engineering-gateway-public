@@ -6,7 +6,7 @@
 
 ## Read in order
 
-1. [Capabilities and boundaries](capabilities.md): what the implementation does and what results mean.
+1. [Capabilities and inputs](capabilities.md), [complete tool catalog](tool-catalog.md) and [practical workflows](analysis-workflows.md): implemented functions, actual names and concrete uses.
 2. [Architecture and security](architecture.md): gateway, fixed-job processor, isolated worker and signer.
 3. [Qualified platform](platform.md): the tested host, prerequisites and resource envelope.
 4. [Installation path](installation.md): source verification, operator-built dependencies, enrollment and maintenance.

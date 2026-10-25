@@ -14,6 +14,8 @@ This page records the separately qualified source candidate. **That source commi
 
 Those identifiers distinguish the qualified implementation from this later documentation branch and from any future release incorporating documentation changes. No current-main hosted pass is claimed.
 
+The recorded default discovery result contains 44 registered tools, including optional EVTX methods that may be unavailable without their dependencies. Configured Git and user-service observers can add two methods. This count is not a claim that each operation was exercised live for every input. The [tool catalog](tool-catalog.md) and [capability inventory](capabilities.md) distinguish implementation, prerequisites and proof scope.
+
 ## Recorded validation
 
 - Native Linux full suite: 905 discovered, 904 passed, one intentional nonroot-profile skip; the root-only refusal test passed separately.

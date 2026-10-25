@@ -1,6 +1,6 @@
 # First use: a synthetic analysis
 
-[Documentation index](index.md) / [Architecture](architecture.md) / [Extensions](extensions.md)
+[Documentation index](index.md) / [Practical workflows](analysis-workflows.md) / [Tool catalog](tool-catalog.md) / [Architecture](architecture.md) / [Extensions](extensions.md)
 
 This is a walkthrough of the qualified candidate's workflow, **not an executable tutorial for this documentation-only branch**. Wait for approved source publication and the corresponding installation/client instructions. Use a new authorized installation with synthetic data first.
 

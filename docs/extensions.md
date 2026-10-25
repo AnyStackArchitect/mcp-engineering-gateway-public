@@ -1,6 +1,6 @@
 # Extension and developer guide
 
-[Documentation index](index.md) / [Capabilities](capabilities.md) / [Future direction](direction.md)
+[Documentation index](index.md) / [Capabilities](capabilities.md) / [Tool catalog](tool-catalog.md) / [Practical workflows](analysis-workflows.md) / [Future direction](direction.md)
 
 The intended audience includes technically capable users who want to bring their own tools into an evidence-oriented workflow. Phase I supplies a foundation to inspect and extend. **Source publication is pending:** today readers can review this design and define an integration's requirements; cloning this docs branch does not supply the implementation or an extension SDK.
 

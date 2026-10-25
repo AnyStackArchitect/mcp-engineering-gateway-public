@@ -60,10 +60,12 @@ def _sign_bytes(key: Path, data: bytes, executable: str) -> bytes:
         signature = Path(directory) / "signature.bin"
         message = Path(directory) / "grant-payload.bin"
         message.write_bytes(data)
+        print("OpenSSL signing starts now. If the key is encrypted, enter its passphrase "
+              "at the terminal prompt within 12 seconds; input is hidden.", flush=True)
         result = subprocess.run(
             [executable, "pkeyutl", "-sign", "-rawin",
              "-inkey", str(key), "-in", str(message), "-out", str(signature)],
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL, stderr=None,
             timeout=12, check=False)
         if result.returncode:
             raise ValueError("Ed25519 signing failed")
@@ -78,7 +80,7 @@ def main() -> int:
     parser.add_argument("--private-key", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
-    if not sys.stdin.isatty() or not sys.stdout.isatty():
+    if not sys.stdin.isatty() or not sys.stdout.isatty() or not sys.stderr.isatty():
         print("Human interactive terminal required", file=sys.stderr)
         return 2
     try:

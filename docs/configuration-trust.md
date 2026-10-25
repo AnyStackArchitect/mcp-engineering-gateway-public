@@ -30,7 +30,7 @@ Administrator-owned `/etc/rocky-eng/execution-policy.json` binds the actual sele
 
 ## Operator workstation checks
 
-In Windows PowerShell 5.1, check `$PSVersionTable.PSVersion`, `Get-Command ssh,scp,python,openssl`, `ssh -V`, `python --version`, `openssl version`. OpenSSL must support Ed25519 and encrypted PKCS8. These are availability checks, not a trust decision about an executable's distributor. Keep the same trusted interpreter/crypto executable for review and signing. Linux client instructions remain a separately qualified path.
+In Windows PowerShell 5.1, check `$PSVersionTable.PSVersion`, `Get-Command ssh,scp,python,openssl`, `ssh -V`, `python --version`, `openssl version`. Also run `python -c "import sys; print(sys.executable)"` and retain the verified interpreter's full path. A Python install-manager shortcut can select or update software instead of immediately running the signer, especially under a different Windows login; stop at that point and complete the approved workstation prerequisites. Invoke the selected interpreter by its verified full path for signing. OpenSSL must support Ed25519 and encrypted PKCS8. These are availability checks, not a trust decision about an executable's distributor. Keep the same trusted interpreter/crypto executable for review and signing. Linux client instructions remain a separately qualified path.
 
 Configure an SSH alias with your actual hostname/address, gateway User and protected SSH IdentityFile. `StrictHostKeyChecking yes`, `IdentitiesOnly yes` and `BatchMode yes` must work after authorized enrollment. Verify host-key fingerprints over an independent administrator channel before adding known_hosts; blindly accepting first-contact output is not verification. No private SSH or signing key belongs in the source, site JSON, issue, grant or host staging directory.
 
@@ -63,7 +63,7 @@ Set EXECUTION_ID to the actual returned ID and NEW_REVIEW_PATH to a new private 
 python operator_sign.py REVIEW_BUNDLE.json --private-key PROTECTED_EXECUTION_PRIVATE.pem --out NEW_GRANT.json
 ```
 
-All three filenames are placeholders for your real absolute private paths. Review exact script, input hashes, pinned image, limits, outputs and full displayed digest. Type the full digest only to approve, or `DENY`; OpenSSL separately prompts for the private-key passphrase. A signed denial is not approval. Transfer only the resulting grant into the gateway's private staging area, then as that login:
+All three filenames are placeholders for your real absolute private paths. `python` means the already verified interpreter; on PowerShell use `& 'C:\YOUR_VERIFIED_PYTHON\python.exe'` in its place when a shortcut does not reliably select it. Use a real interactive terminal with stdin, stdout and stderr attached; do not pipe the decision or redirect the signing prompts. Review exact script, input hashes, pinned image, limits, outputs and full displayed digest. Type the full digest only to approve, or `DENY`; the CLI announces the bounded signing step and OpenSSL prompts for the private-key passphrase with hidden input. Have the passphrase ready before confirming: the existing 12-second crypto timeout includes entry. If that is insufficient, stop and retain the refusal; never put the passphrase into a command, environment or chat to speed it up. A signed denial is not approval. Transfer only the resulting grant into the gateway's private staging area, then as that login:
 
 ```sh
 /usr/bin/python3 -B /opt/rocky-eng/operator_approve.py import "$STAGED_GRANT"

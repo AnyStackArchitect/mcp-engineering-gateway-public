@@ -1,5 +1,7 @@
 # MCP Engineering Gateway
 
+**Development build:** `0.52.0-dev`
+
 **Analyze logs, packet captures, configuration snapshots and case evidence through the Model Context Protocol (MCP), then run reviewed analysis code with independent operator approval.**
 
 MCP Engineering Gateway gives infrastructure engineers, operations teams and developers a common workflow for technical analysis on a Linux host. Phase I combines built-in offline analysis, fixed adapters for existing tools, evidence-linked reports and bounded Python execution in a pinned rootless container. It is a technical product for people who want to use and extend analysis tools while keeping input identity, execution authority and result limits visible.

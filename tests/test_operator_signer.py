@@ -68,6 +68,7 @@ class OffHostOperatorGrantTests(unittest.TestCase):
         with patch.object(sys, "argv", argv), \
              patch.object(sys.stdin, "isatty", return_value=True), \
              patch.object(sys.stdout, "isatty", return_value=True), \
+             patch.object(sys.stderr, "isatty", return_value=True), \
              patch("builtins.input", return_value=answer):
             return operator_sign.main()
 
@@ -109,6 +110,37 @@ class OffHostOperatorGrantTests(unittest.TestCase):
         with patch.object(sys, "argv", argv), patch.object(sys.stdin, "isatty", return_value=False):
             self.assertEqual(operator_sign.main(), 2)
         self.assertFalse(self.signed.exists())
+
+    def test_each_redirected_terminal_stream_refuses_before_review_or_key_use(self):
+        argv = ["operator_sign.py", str(self.review), "--private-key",
+                str(self.private), "--out", str(self.signed)]
+        for stream in ("stdin", "stdout", "stderr"):
+            with self.subTest(stream=stream), patch.object(sys, "argv", argv), \
+                 patch.object(sys.stdin, "isatty", return_value=stream != "stdin"), \
+                 patch.object(sys.stdout, "isatty", return_value=stream != "stdout"), \
+                 patch.object(sys.stderr, "isatty", return_value=stream != "stderr"), \
+                 patch("operator_sign._read_review") as review, \
+                 patch("operator_sign._sign_bytes") as sign:
+                self.assertEqual(operator_sign.main(), 2)
+                review.assert_not_called()
+                sign.assert_not_called()
+                self.assertFalse(self.signed.exists())
+
+    def test_openssl_prompt_is_visible_and_crypto_timeout_remains_bounded(self):
+        def crypto(args, **kwargs):
+            self.assertIsNone(kwargs["stderr"])
+            self.assertEqual(kwargs["stdout"], subprocess.DEVNULL)
+            self.assertEqual(kwargs["timeout"], 12)
+            self.assertNotIn("-passin", args)
+            Path(args[args.index("-out") + 1]).write_bytes(b"x" * 64)
+            return subprocess.CompletedProcess(args, 0)
+        import io
+        from contextlib import redirect_stdout
+        output = io.StringIO()
+        with patch("operator_sign.subprocess.run", side_effect=crypto), redirect_stdout(output):
+            self.assertEqual(operator_sign._sign_bytes(self.private, b"test", "/usr/bin/openssl"), b"x" * 64)
+        self.assertIn("12 seconds", output.getvalue())
+        self.assertIn("input is hidden", output.getvalue())
 
 if __name__ == "__main__":
     unittest.main()

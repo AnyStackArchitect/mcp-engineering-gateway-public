@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Installation](install-from-source.md) / [Trust](configuration-trust.md) / [Validation ledger](reader-validation.md)
 
-**Source is not published yet.** Commands here target the matching complete combined source candidate. They have been checked against its unchanged runtime/tooling; the exact-package reader-led walkthrough is NOT RUN. Source presence is not permission to provision or install a host. Do not substitute a different source or dependency version to work around a refusal.
+**Source is not published yet.** Commands here target the matching complete combined source candidate. They are bound to its source tooling and pinned image inputs. The off-host signing terminal interface has a focused correction; the updated package's affected regression and exact-package reader-led checks must be recorded separately from predecessor results. Source presence is not permission to provision or install a host. Do not substitute a different source or dependency version to work around a refusal.
 
 ## Who installs what
 

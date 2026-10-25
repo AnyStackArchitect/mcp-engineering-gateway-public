@@ -17,13 +17,26 @@
       ],
       "security_limits_changed": false,
       "database_schema_changed": false
+    },
+    {
+      "path": "operator_sign.py",
+      "sha256": "e7ef10aee40a7b5dce3b849e4b9bf34f2dde78bce45cafa022f26cefdf308106",
+      "reason": "Expose the native encrypted-key passphrase prompt and refuse redirected signing terminal streams",
+      "changes": [
+        "Fixed cue and OpenSSL prompt use terminal stderr",
+        "stdin/stdout/stderr must all be interactive",
+        "Verified explicit interpreter recommended on Windows to avoid an install-manager shortcut"
+      ],
+      "security_limits_changed": false,
+      "database_schema_changed": false,
+      "qualification": "Affected native/synthetic and human-terminal proof must bind the exact candidate; no updated-package installed acceptance inferred"
     }
   ],
   "image_delivery": "Operator build from pinned public inputs; no OCI layers, symbols or dumps redistributed",
-  "clean_host_acceptance": "Prior runtime/source qualification is retained by byte bridge; exact combined-package documentation-led install, human-TTY signing and lifecycle rehearsal NOT RUN; separate isolated target/action approval required",
+  "clean_host_acceptance": "Initial combined617 source has partial approved reader-rehearsal evidence; human signing and lifecycle gates remain open. This corrected signer package requires affected regression and exact updated-package installation/audit; prior passes retain their original component/artifact scope.",
   "license_clearance": "See docs/LICENSING.md",
   "private_evidence_included": false,
-  "runtime_modules_unchanged_from_accepted_baseline": 56,
+  "runtime_modules_unchanged_from_accepted_baseline": 55,
   "qualified_internal_operator_image": {
     "archive_sha256": "46ef14e19fc2ec0ac410b9e2c01db57b1d4ab7aa53eb21047d2e7ba24d810e1d",
     "manifest_digest": "sha256:7f814ce6ff7a5652da5e8056ddc8aa972e8665720b32df160c64adf5f88497c4",
@@ -32,7 +45,8 @@
     "recipe_revision": "228add4207d7d4893de0372a9b82374b4773cff5",
     "build_recipe_unchanged_in_this_candidate": true,
     "provider_scope": "17 fixed-provider vectors and bounded Windows 10.0 x64 build19041 kernel-information fixture; no process analysis or root-cause claim",
-    "image_redistribution": "NOT_CLEARED"
+    "image_redistribution": "NOT_CLEARED",
+    "identity_scope": "Historical qualified predecessor image; not this corrected package identity or a redistributable image"
   },
   "qualification_evidence": "Final external release manifest must bind commit/tree, archive/image hashes, supported platform and actual test/review results; private operational evidence is excluded",
   "qualified_running_kernel": "6.12.0-211.68.1.el10_2.x86_64",
@@ -42,12 +56,12 @@
     "qualified_source_archive_sha256": "1658a5dee5a75682816b03f7939c1704cdb8c4136a74f901ed8f522b098e9fe5",
     "reviewed_reader_docs_head": "f734332223bf669b8e749bb0781fc5618b9f8c97",
     "merged_reader_docs_main": "9afd02873cf77d95f42184f7d44dcb4f0ff52481",
-    "runtime_modules_identical_to_predecessor": 57,
-    "runtime_manifest_sha256": "e6f8a700bc75d7ec731a1a6215bca4b61cd13f1cf40b62992ca96077017c60e9",
+    "runtime_modules_identical_to_predecessor": 56,
+    "runtime_manifest_sha256": "f086edc68cfcc12d3a5ecb2f51c0c53dbaac055f5da18b01c38b59f97215d67e",
     "executable_behavior_changed": true,
-    "reader_procedure_execution": "NOT_RUN",
+    "reader_procedure_execution": "PARTIAL_PREDECESSOR_REHEARSAL_UPDATED_PACKAGE_ACCEPTANCE_PENDING",
     "identity_rule": "The package provenance commit and external candidate manifest bind the exact combined commit/tree/archive; predecessor hashes are not the combined artifact identity.",
-    "linux_runtime_behavior_changed": false,
+    "linux_runtime_behavior_changed": true,
     "public_history_boundary": "Existing merged documentation history plus an allowlisted source export; unpublished source-preparation history excluded",
     "windows_client_changes": {
       "files": [
@@ -55,8 +69,20 @@
         "windows/Send-RockyEvidenceResume.ps1"
       ],
       "change": "Require explicit RemoteHost/RemoteUser; use canonical /opt/rocky-eng default; no configured publisher endpoint or login",
-      "unchanged": "All explicit valid endpoint/login/install invocations, staging bytes/reservation/recovery semantics and all57 Linux runtime modules",
-      "required_proof": "Native Windows parameter-binding/zero-transport negative tests, canonical/override path checks, existing legacy/resumable mocked regressions; actual SSH staging in pending reader acceptance"
-    }
+      "unchanged": "Explicit valid endpoint/login/install invocations and staging/reservation/recovery semantics;56manifest modules retain predecessor bytes, with signer terminal handling tracked separately",
+      "required_proof": "Native parameter/mocked fixtures and actual SSH staging passed for the initial combined617 source; unchanged helper-byte bridge preserves that scope, while updated-package reader acceptance remains separate"
+    },
+    "gateway_worker_execution_behavior_changed": false,
+    "off_host_signer_behavior_changed": true
+  },
+  "reader_rehearsal_operator_image": {
+    "source_commit": "6170500348994b716497bdcb2d4503340c11af8b",
+    "archive_sha256": "a9c4d2747aa47497dc3e2bc01701f58d63104a16b87dbfc27aab7813d7727171",
+    "manifest_digest": "sha256:35971d9634e1b44023651adb36478b4d70f156f57d5c005968e9d9493737d193",
+    "config_digest": "sha256:7d47663f8299cffe82d59dc1e3dd4f8d0860d44b5b0faf909e1edc7e5f653b75",
+    "platform": "linux/amd64",
+    "recipe_inputs_unchanged_in_signer_fix": true,
+    "scope": "Public-input internal operator build, inventory/notices and fixed-provider vectors; no updated-package installation claim",
+    "image_redistribution": "NOT_CLEARED"
   }
 }

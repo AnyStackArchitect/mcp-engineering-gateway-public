@@ -187,6 +187,8 @@ Extraction is not a production restore or replay-safe boot decision. Live restor
 
 ## 5. Code-only update — mutations require exact reviewed plan
 
+**Audit/provenance limit:** the native installer audit remains bound to the transaction's original bundle and installed file hashes. The templates below do not create a new installation/update attestation. If a runtime module actually changes, the original audit must refuse that byte mismatch; never edit its journal, bundle or activation record to make it pass. These templates alone are therefore not a qualified end-to-end upgrade to different runtime bytes. Use a freshly approved compatible installation/layout, or stop for a separately reviewed update-provenance and current-ledger recovery procedure before applying a real runtime change. Re-copying identical modules tests preservation mechanics only, not a version-changing upgrade.
+
 Set PRIOR_MANIFEST to the exact old57-module JSON; SOURCE_ROOT is the independently verified compatible new candidate. From SOURCE_ROOT, use the [lifecycle plan command](operations-runbook.md). Keep the plan outside source. With section2 quiescence, verified capture and compatible-schema decision held, copy only the plan's reviewed runtime modules. The template below refuses plan mismatch/drift and preserves old files in PRIVATE_OUTPUT; it does not touch state, trust, image or policy:
 
 ```sh

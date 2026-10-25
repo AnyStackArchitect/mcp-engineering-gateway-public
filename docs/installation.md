@@ -33,3 +33,7 @@ Keep health/status, private logs and case integrity checks in the operating rout
 Updates require an exact prior/new code manifest and a reviewed maintenance procedure. Generic upgrades from arbitrary versions, image replacement and trust rotation are not implied by a code-only update test. Roll back compatible code without rolling back replay history.
 
 Fresh-install rollback deliberately refuses activated trust/history. Safe retirement removes only verified owned code and the site's unit files, preserving cases, keys/public trust, accounts, policy, image stores, journals and nonce/history by default. Purging retained data or identities is a separate operation. Failure must leave evidence available for review, not trigger a force-clean reinstall.
+
+## Detailed source-only operator manual
+
+Start with [every dependency and acquisition/build procedure](dependencies.md), then [source acquisition through activation](install-from-source.md), [configuration/accounts/trust](configuration-trust.md), [client and first analysis](client-first-analysis.md), and [operations/lifecycle](operations-runbook.md). [Reader qualification checklist](reader-validation.md) distinguishes prior mechanism evidence from the exact instructions still NOT RUN. These instructions do not make this docs-only branch installable.

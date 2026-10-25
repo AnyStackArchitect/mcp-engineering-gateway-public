@@ -68,3 +68,7 @@ Phase I already supports operator-reviewed Python in the approved image and sour
 Phase II is intended to add further analysis-tool integrations separately. It is future work, with no committed tool list, dates or plugin-SDK compatibility promise. [Future direction](docs/direction.md).
 
 [Documentation index](docs/index.md) · [Licensing and support](docs/licensing-support.md) · [Project MIT license](LICENSE). Dependencies, symbols and adapters have their own rights conditions; no prebuilt image, symbol archive or dump is cleared for redistribution here.
+
+## Build, install and use from source
+
+For the source-only release, use the [detailed operator manual](docs/install-from-source.md), [complete dependency instructions](docs/dependencies.md), [client and synthetic first-analysis tutorial](docs/client-first-analysis.md), and [operations runbook](docs/operations-runbook.md). Source publication is still pending. The [reader-led validation checklist](docs/reader-validation.md) makes clear which exact instructions remain unexecuted and what must close before the newcomer experience is qualified.

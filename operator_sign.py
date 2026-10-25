@@ -61,7 +61,8 @@ def _sign_bytes(key: Path, data: bytes, executable: str) -> bytes:
         message = Path(directory) / "grant-payload.bin"
         message.write_bytes(data)
         print("OpenSSL signing starts now. If the key is encrypted, enter its passphrase "
-              "at the terminal prompt within 12 seconds; input is hidden.", flush=True)
+              "at the terminal prompt within 12 seconds; input is hidden.",
+              file=sys.stderr, flush=True)
         result = subprocess.run(
             [executable, "pkeyutl", "-sign", "-rawin",
              "-inkey", str(key), "-in", str(message), "-out", str(signature)],

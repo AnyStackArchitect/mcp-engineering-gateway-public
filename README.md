@@ -6,7 +6,7 @@
 
 MCP Engineering Gateway gives infrastructure engineers, operations teams and developers a common workflow for technical analysis on a Linux host. Phase I combines built-in offline analysis, fixed adapters for existing tools, evidence-linked reports and bounded Python execution in a pinned rootless container. It is a technical product for people who want to use and extend analysis tools while keeping input identity, execution authority and result limits visible.
 
-**Candidate status:** this combined source candidate includes the implementation, installer/build recipes and reader manual. It preserves the previously qualified runtime, but the exact combined package still requires the documentation-led clean-host walkthrough. Source publication and release assets remain unapproved; the default remote branch may still be a documentation preview. Use only the exact source commit/package named by the candidate or release manifest. No prebuilt image is supplied.
+**Candidate status:** this combined source candidate includes the implementation, installer/build recipes and reader manual. The gateway and execution engine retain their previously qualified bytes. The off-host signing CLI has a prompt/terminal-handling correction; the updated package still requires its affected regression and documentation-led clean-host checks. Source publication and release assets remain unapproved; the default remote branch may still be a documentation preview. Use only the exact source commit/package named by the candidate or release manifest. No prebuilt image is supplied.
 
 ## What is already implemented
 

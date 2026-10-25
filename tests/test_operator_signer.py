@@ -135,9 +135,9 @@ class OffHostOperatorGrantTests(unittest.TestCase):
             Path(args[args.index("-out") + 1]).write_bytes(b"x" * 64)
             return subprocess.CompletedProcess(args, 0)
         import io
-        from contextlib import redirect_stdout
+        from contextlib import redirect_stderr
         output = io.StringIO()
-        with patch("operator_sign.subprocess.run", side_effect=crypto), redirect_stdout(output):
+        with patch("operator_sign.subprocess.run", side_effect=crypto), redirect_stderr(output):
             self.assertEqual(operator_sign._sign_bytes(self.private, b"test", "/usr/bin/openssl"), b"x" * 64)
         self.assertIn("12 seconds", output.getvalue())
         self.assertIn("input is hidden", output.getvalue())

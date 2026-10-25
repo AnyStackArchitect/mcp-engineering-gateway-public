@@ -37,3 +37,7 @@ No hosted Actions were executed or added. Public/fork code must not gain access 
 Earlier timeouts, an old-kernel filesystem failure and the reproduced cold-start cleanup race were retained and addressed with bounded evidence. The qualified runtime deliberately preserves uncertainty rather than declaring cleanup from a killed process alone. Results do not establish a universal kernel fix or an off-drive disaster-recovery guarantee.
 
 Source-only licensing review does not clear redistribution of built images, symbols or dumps. Exact preferred-form integration source and notices must be accessible before matching source assets are published. Publication, visibility and source-asset approvals are separate from technical qualification.
+
+## Reader-instruction qualification
+
+The detailed source-only operator manual was added after the recorded implementation qualification. Prior passes are retained at their original scope; they do not count as executing these new reader instructions. [The documentation-led checklist](reader-validation.md) records all new clean-host rows NOT RUN and identifies optional dependency, symbol-entitlement, human-signing and target-specific maintenance gaps. This new reader-experience release requirement remains open.

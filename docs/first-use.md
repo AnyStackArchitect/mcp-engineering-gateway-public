@@ -25,3 +25,7 @@ Provider planning or `execution_prepare` produces a plan, not permission. The cu
 Exercise a small declared-output job and verify its recorded result. Also test DENY, invalid/expired grants and consumed-grant replay refusal on synthetic cases. Chat must never turn a prepared plan into approval. Qualification exercised authorized synthetic cryptography and the real operator handoff; it did not attest that a human approved a job or validate the manual human-TTY interaction.
 
 If startup or cleanup is uncertain, preserve the state and use the documented reviewed recovery procedure. Do not reset the nonce database, remove markers or weaken isolation to obtain a positive result. [Qualification](qualification.md) identifies what the preparation actually tested.
+
+## Executable source-release tutorial
+
+The [client and first-analysis manual](client-first-analysis.md) supplies exact transport requests, synthetic sample construction, explicit Windows staging parameters, returned-ID use, hash/index/search verification and queue processing. [Configuration and trust](configuration-trust.md) covers real interactive signing. The exact new tutorial remains [NOT RUN](reader-validation.md), despite earlier underlying flow passes.

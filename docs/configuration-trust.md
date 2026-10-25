@@ -59,11 +59,13 @@ Require interactive passphrase prompts; never pass a passphrase on the command l
 
 Set EXECUTION_ID to the actual returned ID and NEW_REVIEW_PATH to a new private file owned by the gateway. Transfer the review bundle to a new private custodian file. From the verified controller source root, in a human interactive terminal:
 
-```text
-python operator_sign.py REVIEW_BUNDLE.json --private-key PROTECTED_EXECUTION_PRIVATE.pem --out NEW_GRANT.json
+```powershell
+$Python = 'C:\YOUR_VERIFIED_PYTHON\python.exe'
+& $Python .\operator_sign.py 'C:\YOUR_PROTECTED_DIRECTORY\REVIEW_BUNDLE.json' --private-key 'C:\YOUR_PROTECTED_DIRECTORY\execution-private.pem' --out 'C:\YOUR_PROTECTED_DIRECTORY\NEW_GRANT.json'
+if ($LASTEXITCODE -ne 0) { throw 'Signing failed; preserve the refusal and do not import a grant' }
 ```
 
-All three filenames are placeholders for your real absolute private paths. `python` means the already verified interpreter; on PowerShell use `& 'C:\YOUR_VERIFIED_PYTHON\python.exe'` in its place when a shortcut does not reliably select it. Use a real interactive terminal with stdin, stdout and stderr attached; do not pipe the decision or redirect the signing prompts. Review exact script, input hashes, pinned image, limits, outputs and full displayed digest. Type the full digest only to approve, or `DENY`; the CLI announces the bounded signing step and OpenSSL prompts for the private-key passphrase with hidden input. Have the passphrase ready before confirming: the existing 12-second crypto timeout includes entry. If that is insufficient, stop and retain the refusal; never put the passphrase into a command, environment or chat to speed it up. A signed denial is not approval. Transfer only the resulting grant into the gateway's private staging area, then as that login:
+This is the measured Windows PowerShell controller path, run from the verified source root. Replace `$Python` with the verified interpreter executable and all three filenames with your real absolute private paths. Do not use an unverified install-manager shortcut. Use a real interactive terminal with stdin, stdout and stderr attached; do not pipe the decision or redirect the signing prompts. Review exact script, input hashes, pinned image, limits, outputs and full displayed digest. Type the full digest only to approve, or `DENY`; the CLI announces the bounded signing step and OpenSSL prompts for the private-key passphrase with hidden input. Have the passphrase ready before confirming: the existing 12-second crypto timeout includes entry. If that is insufficient, stop and retain the refusal; never put the passphrase into a command, environment or chat to speed it up. A signed denial is not approval. Transfer only the resulting grant into the gateway's private staging area, then as that login:
 
 ```sh
 /usr/bin/python3 -B /opt/rocky-eng/operator_approve.py import "$STAGED_GRANT"

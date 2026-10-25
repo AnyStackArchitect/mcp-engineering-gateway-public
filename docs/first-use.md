@@ -16,7 +16,7 @@ Use `log_index` followed by `log_search` for the known marker. Inspect its sourc
 
 `job_submit` queues fixed built-in work such as `verify_case`; `job_status` and `job_result` observe it. Processing requires the installed `jobwork.py` CLI under the **gateway account**, using its foreground loop or one-job mode. The detailed source-release instructions will supply its invocation. It must not run as root or as the sandbox worker.
 
-Without that processor a fixed job can correctly remain QUEUED. Its foreground session does not automatically persist across disconnect/boot. The separate signed-execution service has qualified boot persistence. Poll conservatively: the gateway enforces 60 tool calls per 60-second window. After a transport failure retain job IDs and resume observation; do not blindly repeat a mutation whose response was lost.
+Without that processor a fixed job can correctly remain QUEUED. Its foreground session does not automatically persist across disconnect/boot. The separate signed-execution service has qualified boot persistence. Poll conservatively: each gateway process/session enforces 60 tool calls per 60-second window in memory, rather than an account-wide persistent quota. After a transport failure retain job IDs and resume observation; do not blindly repeat a mutation whose response was lost.
 
 ## Deliberately approve sandbox work
 

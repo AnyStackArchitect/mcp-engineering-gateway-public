@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Install](install-from-source.md) / [Trust/signing](configuration-trust.md) / [Tool catalog](tool-catalog.md)
 
-This executable tutorial is for a newly approved installation of the matching source release. **It cannot run from this docs-only checkout and its exact reader sequence is NOT RUN.** The snippets follow implemented schemas and use synthetic inputs only. Run on the measured Windows PowerShell5.1 controller unless a section explicitly says otherwise. Do not execute host mutations merely to review the document.
+This executable tutorial is for a newly approved installation of the matching source release. **It cannot run from this docs-only checkout and its exact reader sequence is NOT RUN.** The snippets follow implemented schemas and use synthetic inputs only. Run on the measured Windows PowerShell 5.1 controller unless a section explicitly says otherwise. Do not execute host mutations merely to review the document.
 
 ## 1. Configure SSH stdio in your client
 
@@ -114,7 +114,7 @@ $JobStatus = Invoke-GatewayTool 'job_status' @{job_id=$JobId}
 $JobStatus
 ```
 
-Observe at intervals of at least2seconds using job_status, up to a bounded deadline; the gateway permits60tool calls per60seconds across requests. Require a terminal successful state and invoke `job_result` with `@{job_id=$JobId}`; inspect the actual verification outcome/hashes, not state alone. QUEUED with no processor is expected. Preserve failed/cancelled results, do not resubmit blindly. The foreground fixed processor does not persist across disconnect/boot; the separate signed worker service does.
+Observe at intervals of at least 2 seconds using job_status, up to a bounded deadline; each gateway process/session enforces 60 tool calls per 60 seconds in memory; a fresh SSH process has a fresh limiter, so this is not an account-wide quota. Require a terminal successful state and invoke `job_result` with `@{job_id=$JobId}`; inspect the actual verification outcome/hashes, not state alone. QUEUED with no processor is expected. Preserve failed/cancelled results, do not resubmit blindly. The foreground fixed processor does not persist across disconnect/boot; the separate signed worker service does.
 
 ## 6. Try another built-in path, then approved Python
 

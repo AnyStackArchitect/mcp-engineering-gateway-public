@@ -25,7 +25,7 @@ No memory dump or customer input is needed for the synthetic first analysis. Do 
 
 ## Host package installation — administrator mutation
 
-Only on a newly approved dedicated host. In a privileged administrator terminal, from any directory:
+Only on a newly approved dedicated host. In an administrator terminal with existing approved sudo access, from any directory (in an already-authorized root terminal, omit sudo; do not install or grant sudo merely for this manual):
 
 ```sh
 sudo dnf install -y python3 podman acl policycoreutils-python-utils python3-setools setools-console libsepol shadow-utils-subid openssh-clients openssh-server openssl unzip tar curl git coreutils util-linux grubby
@@ -50,11 +50,11 @@ cat /sys/fs/cgroup/cgroup.controllers
 python3 -B tools/doctor.py
 ```
 
-Expect the exact kernel `6.12.0-211.68.1.el10_2.x86_64`, Enforcing, CPU/memory/pids controllers and doctor JSON `status: PASS_PREREQUISITES`, exit 0. `BLOCKED` exits 2. Doctor checks tool presence, setools and actual CIL symbols, not only package names. It is read-only and does not prove a site is installable. Site inventory still must establish unused accounts, paths, local identity resolution, storage and native policy acceptance.
+Expect the exact kernel `6.12.0-211.68.1.el10_2.x86_64`, Enforcing, CPU/memory/pids controllers and doctor JSON `status: PASS_PREREQUISITES`, exit 0. `BLOCKED` exits 2. Doctor checks tool presence, setools and actual CIL symbols, not only package names. Native inventory additionally invokes `/usr/bin/userdbctl` for the accepted systemd NSS profile; doctor alone does not check it. As administrator, run `command -v userdbctl` and `rpm -qf /usr/bin/userdbctl`. Require the actual binary and its trusted signed OS package. If absent, use `sudo dnf provides /usr/bin/userdbctl` to identify the owning package from your signed Rocky repositories, review that result, then `sudo dnf install -y APPROVED_OWNING_PACKAGE` with the exact returned package name (a placeholder, not a literal package). Recheck ownership/presence and retain its RPM version. Do not disable NSS/systemd identities or invent a package mapping to pass. Inventory must return `OBSERVED_REVIEW_REQUIRED`, `inventory.complete: true`, no collector errors and the accepted local provider/NSS observations; any incomplete or ambiguous observation blocks preparation. It is read-only and does not prove a site is installable. Site inventory still must establish unused accounts, paths, local identity resolution, storage and native policy acceptance.
 
 ## Operator workstation acquisition and checks
 
-On Windows, PowerShell5.1 is the inbox Windows PowerShell executable; use its actual version output rather than assuming PowerShell7 has identical behavior. Install native OpenSSH Client through the Windows Optional Features procedure in [Microsoft's instructions](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse); administrator PowerShell can query `Get-WindowsCapability -Online -Name OpenSSH.Client*` and, only if approved and absent, install `Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0`. Require Installed state and `ssh -V`/`Get-Command scp`; this is an operator-workstation change, not a gateway installation step. Review signed Windows update-source policy first.
+On Windows, PowerShell 5.1 is the inbox Windows PowerShell executable; use its actual version output rather than assuming PowerShell7 has identical behavior. Install native OpenSSH Client through the Windows Optional Features procedure in [Microsoft's instructions](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse); administrator PowerShell can query `Get-WindowsCapability -Online -Name OpenSSH.Client*` and, only if approved and absent, install `Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0`. Require Installed state and `ssh -V`/`Get-Command scp`; this is an operator-workstation change, not a gateway installation step. Review signed Windows update-source policy first.
 
 Obtain Git from [Git for Windows](https://git-scm.com/downloads/win) and Python from its [official Windows releases](https://www.python.org/downloads/windows/). Verify publisher signatures/download hashes offered for the selected installers before running them under your administrator's policy. Select a private development workspace, command-line access to the chosen executables and LF-preserving Git clone. Require `git --version`, `python --version`, `python -c "import ssl,hashlib,json,zipfile; print('CONTROLLER_IMPORTS_OK')"` and the source closure checker. Gateway Python3.12.15 and controller Python are different environments; no universal Windows installer/version matrix is qualified. Record the actual controller versions in reader acceptance.
 
@@ -114,13 +114,22 @@ On an approved isolated Linux Python 3.12 build account, from the source root, s
 ```sh
 umask 077
 mkdir "$EVTX_WORK"
+mkdir "$EVTX_WORK/inputs"
+curl --fail --location --proto '=https' --tlsv1.2 --output "$EVTX_WORK/inputs/python_evtx-0.8.1-py3-none-any.whl" 'https://files.pythonhosted.org/packages/32/12/f16a7a2f118a07649633b8f72803b932c8d9f0d24a2822cc08a1879ddf6f/python_evtx-0.8.1-py3-none-any.whl'
+curl --fail --location --proto '=https' --tlsv1.2 --output "$EVTX_WORK/inputs/hexdump-3.3.zip" 'https://files.pythonhosted.org/packages/55/b3/279b1d57fa3681725d0db8820405cdcb4e62a9239c205e4ceac4391c78e4/hexdump-3.3.zip'
+printf '%s  %s\n' '46336b854dbe0a1e75873ae30db5f583c9d2262ff1d21bdb6b1e624ecfa18ddb' "$EVTX_WORK/inputs/python_evtx-0.8.1-py3-none-any.whl" 'd781a43b0c16ace3f9366aade73e8ad3a7bd5137d58f0b45ab2d3f54876f20db' "$EVTX_WORK/inputs/hexdump-3.3.zip" | sha256sum --check -
+python3 -m zipfile -l "$EVTX_WORK/inputs/hexdump-3.3.zip"
+```
+
+These fixed URLs and hashes were checked against official PyPI version metadata. Curl only retrieves bytes; it does not run Python packaging metadata. Require both checksum lines OK before inspecting the archives and their license/build code in a disposable review directory. Do not use `pip download` for this review boundary: source-package metadata preparation can execute code or fetch build dependencies. After explicit source/backend review, continue in the source root:
+
+```sh
 python3 -m venv --system-site-packages "$EVTX_WORK/build-env"
-"$EVTX_WORK/build-env/bin/python" -m pip download --no-deps --require-hashes --dest "$EVTX_WORK/inputs" -r ci/optional-evtx-requirements.txt
-"$EVTX_WORK/build-env/bin/python" -m pip wheel --no-deps --no-build-isolation --no-index --find-links "$EVTX_WORK/inputs" --wheel-dir "$EVTX_WORK/wheels" -r ci/optional-evtx-requirements.txt --require-hashes
+"$EVTX_WORK/build-env/bin/python" -m pip --isolated --no-cache-dir wheel --no-deps --no-build-isolation --no-index --find-links "$EVTX_WORK/inputs" --wheel-dir "$EVTX_WORK/wheels" -r ci/optional-evtx-requirements.txt --require-hashes
 sha256sum "$EVTX_WORK"/wheels/*.whl
 ```
 
-Network acquisition is restricted to official PyPI; review the source and build backend before the wheel command. Source hashes in the requirements bind input bytes, not generated wheel bytes. Record the new wheel hashes, full license texts, build interpreter and setuptools/pip RPM versions. Missing build backend or further dependency means stop and extend the reviewed closure; do not allow an automatic internet build dependency fetch.
+This build executes reviewed upstream code. `--no-index`, `--no-build-isolation`, `--isolated` and `--no-cache-dir` prevent pip from selecting an inherited index/config/cache or automatically resolving an isolated build environment; they are not OS network confinement for arbitrary build code. Run the build with outbound network blocked by the separately approved build environment, with all reviewed build requirements already present. No such network-setting change is performed by these commands. Source hashes in the requirements bind input bytes, not generated wheel bytes. Record the new wheel hashes, full license texts, build interpreter and setuptools/pip RPM versions. Missing build backend or further dependency means stop and extend the reviewed closure; do not allow an automatic internet build dependency fetch.
 
 The source input hashes are python-evtx `46336b854dbe0a1e75873ae30db5f583c9d2262ff1d21bdb6b1e624ecfa18ddb` (wheel) or `e96cea25536a3de5074af7f1bdbf011084d09c2e00664ab754d979820ed75fea` (sdist), and hexdump `d781a43b0c16ace3f9366aade73e8ad3a7bd5137d58f0b45ab2d3f54876f20db`.
 

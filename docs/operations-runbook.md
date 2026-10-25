@@ -19,7 +19,7 @@ Check actual MCP `gateway_status` and case_status/job_status/execution_status fi
 | Retained transaction path | Root-private installer/activation journal and receipts; preserve failures |
 | Actual worker user-unit journal | Inspect through the authorized site's existing systemd user manager; site-specific unit/UID from transaction |
 
-The worker manager and private stores are not universal paths a client should open. Generate exact `systemctl --user`/journal commands with the actual site unit, UID, environment and existing manager during the approved rehearsal; guessing these is unsafe. Root's default `systemctl --user` is not the worker's manager. Retain stderr/exit codes and exact targeted unit for the maintenance record.
+The worker manager and private stores are not universal paths a client should open. Use the [transaction-bound worker-manager and journal commands](maintenance-commands.md) with the actual site unit, UID and existing manager; guessing these is unsafe. Root's default `systemctl --user` is not the worker's manager. Retain stderr/exit codes and exact targeted unit for the maintenance record.
 
 ## Refusal and failure guide
 
@@ -47,7 +47,7 @@ For uncertain startup, same-boot automatic recovery deliberately refuses. A sepa
 4. Restore first into a NEW isolated directory with no service/socket. Verify hashes, SQLite `PRAGMA integrity_check`, full table/row counts, nonempty terminal job results, every referenced artifact/source locator and consumed history. Reject missing/corrupt/omitted data rather than constructing replacements.
 5. Restored startup needs an approved stopped recovery layout and compatible source/schema/trust/image. Never overwrite active history with an older backup; doing so can reopen replay. Do not resume/resubmit old work automatically. Record current-vs-backup ledger identity before a recovery decision.
 
-No generic live backup/restore CLI is shipped. An exact site capture/restore command transcript must be written and rehearsed on the approved isolated target before relying on it. Existing synthetic fixtures and previous populated-store restoration do not qualify a newcomer following this revised procedure. RPO/RTO, production restore, private-key recovery and arbitrary crash durability are not promised.
+No generic live backup/restore CLI is shipped. The [parameterized capture/isolated-restore transcript](maintenance-commands.md) must be bound to the actual site and rehearsed on the approved isolated target before relying on it. Live restoration over active state remains deliberately unsupported. Existing synthetic fixtures and previous populated-store restoration do not qualify a newcomer following this revised procedure. RPO/RTO, production restore, private-key recovery and arbitrary crash durability are not promised.
 
 ## Update — code-only compatible path
 
@@ -59,7 +59,7 @@ python3 -B tools/lifecycle.py update --installed-code /opt/rocky-eng --prior-man
 
 PRIOR_MANIFEST is the exact prior installed57-module manifest, not the new one. Require exit0 and no drift/missing/extra/link refusal. The planner never applies live changes. Review exact prior/new module hashes, schema compatibility and rollback copies. Block callers, drain/quiesce the exact site unit, record coherent state/history and save prior code. Administrator replaces only reviewed manifest-owned code as root:root0644 with correct labels; leave config/trust/image/state/journals untouched. Reverify closure/labels before enabling. On failure preserve stopped state; code rollback requires compatible schema/state and never rolls back replay history. Image/policy/trust changes are separate migrations.
 
-After restart verify MCP first-use, existing hashes/results/history, fresh signed positive/negative and consumed-grant replay refusal. Generic updates from arbitrary versions are unsupported. Exact maintenance commands must be generated for the actual unit and manifest during rehearsal, not inferred from fixtures.
+After restart verify MCP first-use, existing hashes/results/history, fresh signed positive/negative and consumed-grant replay refusal. Generic updates from arbitrary versions are unsupported. Use the [source-bound update commands](maintenance-commands.md), bind the actual unit/manifests and rehearse; fixture passes do not execute them.
 
 ## Safe uninstall — retained-state retirement, not purge
 
@@ -71,4 +71,4 @@ python3 -B tools/lifecycle.py uninstall --installed-code /opt/rocky-eng --prior-
 
 After approved maintenance isolation/quiescence and exact plan re-verification, remove **only** the57 manifest-owned code modules and unchanged site unit/drop-ins. Record hashes and retain rollback copies. Confirm unit disabled, no active job/container/socket and unrelated services unchanged. Preserve cases, private keys/public trust, accounts/subids, SELinux policy, images, journals and nonce/history by default. Retained accounts/paths deliberately cause fresh-install refusal. Purge, trust removal, account deletion or image pruning need a separate scoped review; no recursive delete or fresh-install rollback against activated state.
 
-There is no automatic destructive live uninstaller. Documented manual retirement and its exact target-specific commands must be rehearsed and reviewed, with retained-state before/after hashes. The source CLI's offline apply helpers are fixture-only, not a supported way to mutate a live site.
+There is no automatic destructive live uninstaller. The [parameterized retirement commands](maintenance-commands.md) must be bound, rehearsed and reviewed, with retained-state before/after hashes. The source CLI's offline apply helpers are fixture-only, not a supported way to mutate a live site.

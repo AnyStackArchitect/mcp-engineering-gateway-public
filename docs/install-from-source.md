@@ -4,6 +4,17 @@
 
 **Do not execute against this docs-only repository.** Source publication remains pending. This manual is bound to the qualified implementation described in [qualification](qualification.md); source integration must rebind the final commit/package/manifests and exercise these exact instructions. Administrator steps modify accounts, root-owned code, SELinux policy, images and services. Use a dedicated approved supported host, never an existing deployment.
 
+## Roles and separate terminal sessions
+
+| Session | Identity / shell | Owns these paths and decisions |
+|---|---|---|
+| Linux build/controller | Approved nonroot account, Bash; may be a separate approved builder | Clean Git source, INPUT/OUTPUT, site-bundle/package commands and rootless image build |
+| Target administrator | Root on the exact dedicated supported host, Bash | Root-private STAGE/TRANSACTION, inventory, prepare/activate/audit, site lifecycle |
+| Windows operator | Native PowerShell 5.1 with approved SSH key | Client configuration, synthetic sample/staging and reference protocol tutorial |
+| Signing custodian | Protected interactive workstation terminal, independent authority | Private execution signer, review and deliberate signing; no private key transferred to target |
+
+No variable or current directory automatically transfers between these sessions. Explicitly set/verify the needed values again after SSH/reconnect and transfer reviewed files through authorized transport. Linux `$INPUT`/`$OUTPUT` refer to controller paths; target `$STAGE`/`$TRANSACTION` refer to different target paths. `$SOURCE_ROOT` in the maintenance manual is the verified complete source tree on the target. Windows `$Source` is the verified controller source checkout. A technically capable operator may hold more than one role, but must keep signing authority and key custody separate from the gateway/worker.
+
 ## 1. Acquire and verify source — operator controller
 
 The full release needs a Git checkout for the package and site-bundle builders. A GitHub-generated archive is not the project's deterministic source package and contains no `.git`. When source is published, obtain the approved **source commit**, `CHECKSUMS.txt`, release manifest, qualification summary and deterministic source package from that same release. There is no current download URL or version tag to paste here.

@@ -30,3 +30,5 @@ Installation will require the matching source, notices, manifests and dependency
 - [Traceable documentation-led qualification checklist and open limits](reader-validation.md).
 
 These pages are prepared against the held source candidate. They are not downloadable implementation files. The exact revised reader walkthrough has not been executed and must be qualified against the final source package.
+
+- [Parameterized site maintenance commands](maintenance-commands.md): correct user manager, capture/isolated restore and plan-verified code-only update/retirement, with explicit unexecuted/destructive boundaries.

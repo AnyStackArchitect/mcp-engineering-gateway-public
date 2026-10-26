@@ -126,11 +126,11 @@ class OffHostOperatorGrantTests(unittest.TestCase):
                 sign.assert_not_called()
                 self.assertFalse(self.signed.exists())
 
-    def test_openssl_prompt_is_visible_and_crypto_timeout_remains_bounded(self):
+    def test_openssl_prompt_is_visible_without_a_passphrase_entry_timeout(self):
         def crypto(args, **kwargs):
             self.assertIsNone(kwargs["stderr"])
             self.assertEqual(kwargs["stdout"], subprocess.DEVNULL)
-            self.assertEqual(kwargs["timeout"], 12)
+            self.assertNotIn("timeout", kwargs)
             self.assertNotIn("-passin", args)
             Path(args[args.index("-out") + 1]).write_bytes(b"x" * 64)
             return subprocess.CompletedProcess(args, 0)
@@ -139,8 +139,17 @@ class OffHostOperatorGrantTests(unittest.TestCase):
         output = io.StringIO()
         with patch("operator_sign.subprocess.run", side_effect=crypto), redirect_stderr(output):
             self.assertEqual(operator_sign._sign_bytes(self.private, b"test", "/usr/bin/openssl"), b"x" * 64)
-        self.assertIn("12 seconds", output.getvalue())
+        self.assertIn("no passphrase-entry timeout", output.getvalue().replace("\n", " "))
+        self.assertIn("Ctrl+C", output.getvalue())
         self.assertIn("input is hidden", output.getvalue())
+
+    def test_expiry_during_signing_does_not_write_a_stale_grant(self):
+        self.export()
+        created = json.loads(self.review.read_text())["created"]
+        with patch("operator_sign.time.time", side_effect=[created + 1, created + 301]), \
+             patch("operator_sign._sign_bytes", return_value=b"x" * 64):
+            self.assertEqual(self.sign(self.plan["plan_sha256"]), 2)
+        self.assertFalse(self.signed.exists())
 
 if __name__ == "__main__":
     unittest.main()

@@ -20,12 +20,13 @@
     },
     {
       "path": "operator_sign.py",
-      "sha256": "e7ef10aee40a7b5dce3b849e4b9bf34f2dde78bce45cafa022f26cefdf308106",
-      "reason": "Expose the native encrypted-key passphrase prompt and refuse redirected signing terminal streams",
+      "sha256": "cea6fe10cc6a56085506e14c1ea8a1be002e32cdcad01e55133bfedc897afa3a",
+      "reason": "Visible interactive signing without a passphrase-entry timeout; expired completed decisions are refused",
       "changes": [
-        "Fixed cue and OpenSSL prompt use terminal stderr",
-        "stdin/stdout/stderr must all be interactive",
-        "Verified explicit interpreter recommended on Windows to avoid an install-manager shortcut"
+        "Native terminal stderr prompt; stdin/stdout/stderr must be interactive",
+        "No timeout on the interactive OpenSSL subprocess; Ctrl+C cancels",
+        "Existing 300-second grant and 1800-second review validity retained; expiry rechecked before output",
+        "Explicit verified Python interpreter on Windows"
       ],
       "security_limits_changed": false,
       "database_schema_changed": false,
@@ -57,7 +58,7 @@
     "reviewed_reader_docs_head": "f734332223bf669b8e749bb0781fc5618b9f8c97",
     "merged_reader_docs_main": "9afd02873cf77d95f42184f7d44dcb4f0ff52481",
     "runtime_modules_identical_to_predecessor": 56,
-    "runtime_manifest_sha256": "f086edc68cfcc12d3a5ecb2f51c0c53dbaac055f5da18b01c38b59f97215d67e",
+    "runtime_manifest_sha256": "37049b5a30416872849997175d511f3b1298e295efc2f87055c220a539f5fb05",
     "executable_behavior_changed": true,
     "reader_procedure_execution": "PARTIAL_PREDECESSOR_REHEARSAL_UPDATED_PACKAGE_ACCEPTANCE_PENDING",
     "identity_rule": "The package provenance commit and external candidate manifest bind the exact combined commit/tree/archive; predecessor hashes are not the combined artifact identity.",

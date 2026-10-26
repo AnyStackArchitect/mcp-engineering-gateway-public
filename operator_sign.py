@@ -61,13 +61,14 @@ def _sign_bytes(key: Path, data: bytes, executable: str) -> bytes:
         message = Path(directory) / "grant-payload.bin"
         message.write_bytes(data)
         print("OpenSSL signing starts now. If the key is encrypted, enter its passphrase "
-              "at the terminal prompt within 12 seconds; input is hidden.",
+              "at the terminal prompt; input is hidden. There is no passphrase-entry "
+              "timeout. Press Ctrl+C to cancel.",
               file=sys.stderr, flush=True)
         result = subprocess.run(
             [executable, "pkeyutl", "-sign", "-rawin",
              "-inkey", str(key), "-in", str(message), "-out", str(signature)],
             stdout=subprocess.DEVNULL, stderr=None,
-            timeout=12, check=False)
+            check=False)
         if result.returncode:
             raise ValueError("Ed25519 signing failed")
         raw = signature.read_bytes()
@@ -108,6 +109,9 @@ def main() -> int:
             "decision": "DENY" if decision_input == "DENY" else "APPROVE",
         }
         signature = _sign_bytes(args.private_key, canonical(payload), shutil.which("openssl") or "")
+        completed = int(time.time())
+        if completed >= expiry or completed + 30 < now:
+            raise ValueError("Signed decision expired or workstation clock changed; no grant written")
         envelope = {"payload": payload, "signature": base64.b64encode(signature).decode("ascii")}
         data = canonical(envelope) + b"\n"
         fd = os.open(args.out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)

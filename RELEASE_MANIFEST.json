@@ -3,7 +3,7 @@
   "product": "MCP Engineering Gateway",
   "phase": "I",
   "software_version": "0.52.0-dev",
-  "distribution_status": "LOCAL_COMBINED_SOURCE_DOCS_CANDIDATE_READER_ACCEPTANCE_PENDING",
+  "distribution_status": "LOCAL_SOURCE_ONLY_CANDIDATE_BASELINE_REHEARSAL_PASS_FINAL_RELEASE_REVIEW_PENDING",
   "runtime_modules": 57,
   "runtime_divergences": [
     {
@@ -30,11 +30,11 @@
       ],
       "security_limits_changed": false,
       "database_schema_changed": false,
-      "qualification": "Affected native/synthetic and human-terminal proof must bind the exact candidate; no updated-package installed acceptance inferred"
+      "qualification": "Exact source17adbaa native regression, fresh installed audit and actual human encrypted-key signing passed; final documentation-only candidate retains these exact runtime bytes."
     }
   ],
   "image_delivery": "Operator build from pinned public inputs; no OCI layers, symbols or dumps redistributed",
-  "clean_host_acceptance": "Initial combined617 source has partial approved reader-rehearsal evidence; human signing and lifecycle gates remain open. This corrected signer package requires affected regression and exact updated-package installation/audit; prior passes retain their original component/artifact scope.",
+  "clean_host_acceptance": "Source17adbaa exact artifact passed fresh installation, SSH/MCP first use, actual human encrypted-key signing, negative/replay/expiry/reboot and populated signed-history isolated recovery/retained-state retirement. Final status-documentation/checksum changes use an unchanged-executable-byte bridge, not a second fresh installation of the final documentation-only ZIP. See docs/qualification.md; public delivery and final independent release review remain pending.",
   "license_clearance": "See docs/LICENSING.md",
   "private_evidence_included": false,
   "runtime_modules_unchanged_from_accepted_baseline": 55,
@@ -60,7 +60,7 @@
     "runtime_modules_identical_to_predecessor": 56,
     "runtime_manifest_sha256": "37049b5a30416872849997175d511f3b1298e295efc2f87055c220a539f5fb05",
     "executable_behavior_changed": true,
-    "reader_procedure_execution": "PARTIAL_PREDECESSOR_REHEARSAL_UPDATED_PACKAGE_ACCEPTANCE_PENDING",
+    "reader_procedure_execution": "BASELINE_PASS_SOURCE17ADBAA_EXACT_ARTIFACT_FINAL_DOCUMENTATION_ONLY_BRIDGE",
     "identity_rule": "The package provenance commit and external candidate manifest bind the exact combined commit/tree/archive; predecessor hashes are not the combined artifact identity.",
     "linux_runtime_behavior_changed": true,
     "public_history_boundary": "Existing merged documentation history plus an allowlisted source export; unpublished source-preparation history excluded",
@@ -71,19 +71,28 @@
       ],
       "change": "Require explicit RemoteHost/RemoteUser; use canonical /opt/rocky-eng default; no configured publisher endpoint or login",
       "unchanged": "Explicit valid endpoint/login/install invocations and staging/reservation/recovery semantics;56manifest modules retain predecessor bytes, with signer terminal handling tracked separately",
-      "required_proof": "Native parameter/mocked fixtures and actual SSH staging passed for the initial combined617 source; unchanged helper-byte bridge preserves that scope, while updated-package reader acceptance remains separate"
+      "required_proof": "Native parameter/mocked fixtures and actual literal Windows SSH staging passed; final documentation-only changes preserve both helper files and executable reader commands."
     },
     "gateway_worker_execution_behavior_changed": false,
     "off_host_signer_behavior_changed": true
   },
   "reader_rehearsal_operator_image": {
-    "source_commit": "6170500348994b716497bdcb2d4503340c11af8b",
-    "archive_sha256": "a9c4d2747aa47497dc3e2bc01701f58d63104a16b87dbfc27aab7813d7727171",
-    "manifest_digest": "sha256:35971d9634e1b44023651adb36478b4d70f156f57d5c005968e9d9493737d193",
-    "config_digest": "sha256:7d47663f8299cffe82d59dc1e3dd4f8d0860d44b5b0faf909e1edc7e5f653b75",
+    "archive_sha256": "afc86f00f40423f46679f55764f36fa0ab7044d28c178b68a69885fdffb180ca",
+    "archive_bytes": 145872896,
+    "manifest_digest": "sha256:1819c4083f5da8e426dc367d59c2cb32b4b68a650a3a440712e3035b57885216",
+    "config_digest": "sha256:893a76b24394a674a679a4ddfb46f139ea7473a4f6294f07ff1b082634243971",
     "platform": "linux/amd64",
-    "recipe_inputs_unchanged_in_signer_fix": true,
-    "scope": "Public-input internal operator build, inventory/notices and fixed-provider vectors; no updated-package installation claim",
+    "identity_scope": "Public-input operator build for source17adbaa; reused unchanged in fresh signer enrollment, not a new 6GiB image-build test or redistributed image",
     "image_redistribution": "NOT_CLEARED"
+  },
+  "tested_reader_source": {
+    "commit": "17adbaa784b794da8caf03fcd11532a481d84112",
+    "tree": "9a760f59eccef35823971f65083ffed5d5f2726c",
+    "archive_sha256": "1a2ee0dee0ed51c754a6d3154c2a193ab685957e44b4c99b116986f781b4ed1c",
+    "archive_bytes": 2475719,
+    "human_terminal_signing": "PASS",
+    "signed_history_isolated_restore": "PASS",
+    "cross_version_upgrade": "UNSUPPORTED_FIRST_PUBLIC_RELEASE",
+    "final_documentation_status_correction": "All runtime/installer/provider/image-input bytes and executable reader commands unchanged; final external manifest binds archive identity and repeated artifact checks."
   }
 }

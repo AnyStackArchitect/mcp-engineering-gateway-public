@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Install](install-from-source.md) / [First analysis](client-first-analysis.md) / [Acceptance checklist](reader-validation.md)
 
-This is the source-release operating contract, not authorization to change a host. Use exact site/transaction identities. A reader-led rehearsal of this revised runbook is NOT RUN. Prior mechanism/lifecycle qualification does not prove these new instructions were followed.
+This is the source-release operating contract, not authorization to change a host. Use exact site/transaction identities. The baseline reader-led rehearsal passed for the [scoped tested artifact](qualification.md), including quiesced populated capture, isolated recovery and retained-state retirement. This does not authorize production changes or qualify a generic live restore or cross-version upgrade.
 
 ## Health and private logs
 

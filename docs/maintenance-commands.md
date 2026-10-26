@@ -2,7 +2,7 @@
 
 [Operations](operations-runbook.md) / [Installation](install-from-source.md) / [Reader acceptance](reader-validation.md)
 
-These are **unexecuted source-bound templates for a stopped, approved dedicated site**, not a new runtime CLI. Review the selected values and exact candidate before any command. Read-only steps do not authorize later mutations. State capture, restore, service changes, replacement and removal need an approved maintenance window/disposable-target rehearsal. No production restore, purge or arbitrary-version migration is implied. Commands use Bash and the target's root administrator; signing keys remain on their separate custodian workstation.
+These are **source-bound templates for a stopped, approved dedicated site**, not a new runtime CLI. The [baseline rehearsal](qualification.md) executed the selected site-bound commands for populated capture, isolated restore, same-byte code copy and retained-state retirement. Restarting a restored service and cross-version upgrade were not exercised or qualified. Review the selected values and exact candidate before any command. Read-only steps do not authorize later mutations. State capture, restore, service changes, replacement and removal need an approved maintenance window/disposable-target rehearsal. No production restore, purge or arbitrary-version migration is implied. Commands use Bash and the target's root administrator; signing keys remain on their separate custodian workstation.
 
 ## 1. Bind this terminal to the actual transaction
 

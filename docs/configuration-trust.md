@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Install](install-from-source.md) / [First analysis](client-first-analysis.md)
 
-These instructions target this combined source candidate; public release approval and exact-package reader acceptance remain pending. Security-sensitive key generation/enrollment must be performed deliberately by the authorized custodian/administrator, never by chat or CI.
+These instructions target this combined source candidate; the baseline reader rehearsal passed as scoped in [qualification](qualification.md), while final independent release review and publication remain pending. Security-sensitive key generation/enrollment must be performed deliberately by the authorized custodian/administrator, never by chat or CI.
 
 ## Nonsecret site configuration
 
@@ -16,7 +16,7 @@ Start with `ops/deployment/site.example.json` from the source. Do not copy the e
 | `source_commit` | Exact selected source distribution commit, never a docs commit |
 | `gateway.name/uid/gid/home` | New gateway SSH account and unused IDs, home corresponding to that account |
 | `worker.name/home` | Fixed `rocky-eng-worker`, `/home/rocky-eng-worker` |
-| `worker.uid/gid` | Distinct unused IDs, in supported 1000–60000 range |
+| `worker.uid/gid` | Distinct unused IDs, in supported 1000â€“60000 range |
 | `worker.subid_start/subid_count` | Reviewed nonoverlapping subordinate-ID range; count 65,536 |
 | `paths.code/config/runtime` | Fixed `/opt/rocky-eng`, `/etc/rocky-eng`, `/run/rocky-eng`; must be unused |
 | `min_free_bytes` | Per-target admission floor; example 1 GiB is not total capacity sizing |
@@ -34,7 +34,7 @@ In Windows PowerShell 5.1, check `$PSVersionTable.PSVersion`, `Get-Command ssh,s
 
 Configure an SSH alias with your actual hostname/address, gateway User and protected SSH IdentityFile. `StrictHostKeyChecking yes`, `IdentitiesOnly yes` and `BatchMode yes` must work after authorized enrollment. Verify host-key fingerprints over an independent administrator channel before adding known_hosts; blindly accepting first-contact output is not verification. No private SSH or signing key belongs in the source, site JSON, issue, grant or host staging directory.
 
-## Create the independent execution signer — human interactive terminal
+## Create the independent execution signer â€” human interactive terminal
 
 Use a NEW protected directory on the custodian workstation, outside source/cloud sync/shared storage. On POSIX it must be owner-only0700; on Windows remove inheritance and inspect NTFS owner/ACL, allowing only custodian, SYSTEM and local Administrators. Do not copy an ACL command with a guessed username. Have the administrator verify effective access before key generation.
 
@@ -71,10 +71,10 @@ This is the measured Windows PowerShell controller path, run from the verified s
 /usr/bin/python3 -B /opt/rocky-eng/operator_approve.py import "$STAGED_GRANT"
 ```
 
-Poll `execution_status`/`execution_result` using the returned execution ID. Validate SUCCEEDED plus declared output hash on positive tests; DENIED for explicit denial; invalid/expired/replayed grants must refuse. Do not edit nonce DB, advance clocks or delete launch markers for a positive outcome. Existing qualification exercised authorized synthetic crypto and actual handoff; manual human-TTY interaction remains NOT RUN and must be closed by the reader-led exercise.
+Poll `execution_status`/`execution_result` using the returned execution ID. Validate SUCCEEDED plus declared output hash on positive tests; DENIED for explicit denial; invalid/expired/replayed grants must refuse. Do not edit nonce DB, advance clocks or delete launch markers for a positive outcome. The baseline reader rehearsal exercised actual human encrypted-key signing and installed positive/denial/replay/expiry checks; see the exact scope in [qualification](qualification.md). This does not attest future operator decisions.
 
 Loss of key/passphrase stops new approvals. Do not replace trust under the same identity or restore older replay history. Fresh activation refuses trust replacement; a new signer needs stopped-state compatibility/enrollment review. Recovery is not a hidden force flag.
 
 ### Signing timing limits
 
-The review bundle is eligible only within 1,800 seconds of its creation. A generated grant expires at the earlier of 300 seconds after the CLI reads/validates the bundle (before waiting for human confirmation) or that bundle deadline; a workstation clock more than 30 seconds behind bundle creation is refused. Human review/confirmation and passphrase time consume that validity window. The interactive OpenSSL subprocess has no timeout while waiting for passphrase entry. The CLI rechecks the signed grant's expiry after OpenSSL completes and refuses to write an expired grant. An expired bundle or grant needs a fresh reviewed attempt, not clock changes or replay-history edits. These are source-bound limits; manual terminal/passphrase timing remains part of the required unexecuted human-signing check.
+The review bundle is eligible only within 1,800 seconds of its creation. A generated grant expires at the earlier of 300 seconds after the CLI reads/validates the bundle (before waiting for human confirmation) or that bundle deadline; a workstation clock more than 30 seconds behind bundle creation is refused. Human review/confirmation and passphrase time consume that validity window. The interactive OpenSSL subprocess has no timeout while waiting for passphrase entry. The CLI rechecks the signed grant's expiry after OpenSSL completes and refuses to write an expired grant. An expired bundle or grant needs a fresh reviewed attempt, not clock changes or replay-history edits. These source-bound limits were retained during the actual human terminal rehearsal. Expiration remains effective even though passphrase entry has no subprocess deadline.

@@ -2,7 +2,7 @@
 
 [Documentation index](index.md) / [Installation path](installation.md)
 
-The initial profile is intentionally specific. The combined candidate supplies source, but public release and the exact-package reader walkthrough are still pending. This page defines the supported profile; the linked dependency/install manual supplies commands.
+The initial profile is intentionally specific. The combined candidate supplies source, but the baseline reader walkthrough passed within the [recorded qualification scope](qualification.md), while final independent release review and public delivery remain pending. This page defines the supported profile; the linked dependency/install manual supplies commands.
 
 | Component | Qualified reference |
 |---|---|

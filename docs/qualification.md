@@ -1,45 +1,41 @@
 # Qualification and release identity
 
-[Documentation index](index.md) / [Qualified platform](platform.md)
+[Documentation index](index.md) / [Qualified platform](platform.md) / [Reader checklist](reader-validation.md)
 
-This page records the qualified source/runtime predecessor and distinguishes it from the new combined source/manual candidate. **Public source/assets and exact-package reader acceptance remain pending.** No download URL or hosted-CI badge is implied. [Integration identity and evidence bridge](source-integration.md) explains how the candidate package binds its exact bytes.
+The baseline source-only reader rehearsal completed on 2026-10-26. **Final independent release review and publication remain pending.** Source and downloads are not yet publicly available; no hosted-CI pass or release approval is implied.
 
-| Identity | Qualified predecessor (not the combined package) |
+## Exact tested baseline and final documentation bridge
+
+| Item | Tested identity |
 |---|---|
-| Source commit | `6aa2aaf5cc77decbe376b691c87ea30611dcc24d` |
-| Source tree | `105b0b029f982894eed802ebbb457007e360c442` |
-| Source ZIP size | 2,311,149 bytes |
-| Source ZIP SHA-256 | `1658a5dee5a75682816b03f7939c1704cdb8c4136a74f901ed8f522b098e9fe5` |
-| Reported runtime version | `0.52.0-dev` |
+| Source commit | `17adbaa784b794da8caf03fcd11532a481d84112` |
+| Source tree | `9a760f59eccef35823971f65083ffed5d5f2726c` |
+| Source ZIP size | 2,475,719 bytes |
+| Source ZIP SHA-256 | `1a2ee0dee0ed51c754a6d3154c2a193ab685957e44b4c99b116986f781b4ed1c` |
+| Runtime version | `0.52.0-dev` |
+| Operator-built OCI manifest | `sha256:1819c4083f5da8e426dc367d59c2cb32b4b68a650a3a440712e3035b57885216` |
 
-Those identifiers describe the qualification predecessor. They are not the current combined ZIP identity; use its packaging provenance and accompanying candidate manifest. No current-main hosted pass is claimed.
+The final reader-status correction changes documentation and source checksums only. Its external candidate manifest binds the final commit/tree/archive to these tested bytes; it is not a second fresh installation of the final documentation-only archive. All 57 runtime modules, installer/build/provider code, image inputs and executable reader commands remain identical. Source closure, packaging, links, disclosure and independent review are repeated for that final archive. Verify the accompanying candidate manifest and `provenance.json`; do not substitute a historical ZIP for the final source asset. Raw infrastructure, signing and operational evidence stays private.
 
-The recorded default discovery result contains 44 registered tools, including optional EVTX methods that may be unavailable without their dependencies. Configured Git and user-service observers can add two methods. This count is not a claim that each operation was exercised live for every input. The [tool catalog](tool-catalog.md) and [capability inventory](capabilities.md) distinguish implementation, prerequisites and proof scope.
+Compared with the earlier qualified implementation `6aa2aaf5cc77decbe376b691c87ea30611dcc24d`, 56 runtime modules remain identical. The changed off-host `operator_sign.py` preserves visible OpenSSL terminal prompts, requires interactive streams and removes the passphrase-entry deadline. It retains grant/review expiry, canonical signatures, replay rules and cancellation, and refuses to emit a grant that expired during signing. The exact corrected signer was installed and exercised in the tests below.
 
 ## Recorded validation
 
-- Native Linux full suite: 905 discovered, 904 passed, one intentional nonroot-profile skip; the root-only refusal test passed separately.
-- Distribution and installer fixtures: 21 and 82 tests respectively, with applicable native Windows/Linux runs.
-- Seven named source/MCP smokes and 17 image provider vectors, including expected partial/refusal outcomes.
-- Actual fresh installation from the source artifact; interrupted preparation/rollback and collision refusal; independent public-trust enrollment; nonexecuting cold-image preparation.
-- MCP discovery/invocation, synthetic intake/index/search/offline packet summary and case hash verification; signed positive/negative cases, isolation/resource limits and replay checks.
-- Worker interruption and conservative recovery, reboot availability, postboot execution, code-only update, populated backup/restore and safe retirement preserving operator history.
-- Independent source/security/package/licensing review and exact-artifact disclosure review. The completed review classified the source-only candidate CLEAN for the exact qualified profile.
+- Linux-native regression: 908 scheduled, 907 passed, one intentional nonroot-profile skip; the root-only refusal check passed separately. The recorded kernel and native dependency inventory bind the supported profile; this is not a broad Linux compatibility claim.
+- Windows-native distribution and installer fixtures: 21 and 82 respectively; seven source/MCP smokes and 17 fixed-provider vectors, including expected partial/refusal outcomes. Fixtures and mocks are identified separately from live tests.
+- Fresh native installation from the tested artifact, interrupted preparation/rollback and collision refusal; independent public-trust enrollment; SELinux Enforcing, separate gateway/worker identities, isolation and unchanged resource limits.
+- Actual SSH/MCP initialization, discovery of 44 default tools and invocation; literal Windows staging of a synthetic 119-byte log, SHA-256 verification, registration, indexing, search and queued case verification.
+- Actual human encrypted-key signing in a native terminal, approved execution with verified output bytes/hash, denied execution, invalid signature refusal without state change, consumed-grant replay refusal, natural grant expiry and reboot of an observed running container. The interrupted job recovered conservatively; the native installed audit passed with three consumed nonces.
+- Documentation-bound quiesced capture and isolated restore: complete file bytes/ownership/modes/xattrs, SQLite integrity and all logical rows compared against quiesced live stores. Four signed plan states and all three consumed nonces survived; public restored job/result and original-byte checks passed. The synthetic input correctly retained unverified provenance. Restored expired-grant refusal is distinguished from the earlier live replay test performed before expiry.
+- Same-byte code replacement and verified owned-code/unit retirement preserved cases, keys, configuration and nonce/history state. This is not a version-changing upgrade or a generic live restore. Capture and restored copies shared the disposable disk, so the exercise establishes logical recovery, not off-drive disaster protection.
+- Independent source/security/package/licensing/disclosure reviews retain their exact component/artifact scope. The prescribed disclosure-wrapper resources were unavailable; pinned official Betterleaks 1.9.0 supplied explicitly identified substitute scans of the export, archive and reachable sanitized history. Findings were reviewed individually; this is not a universal absence-of-secrets guarantee.
 
-Some live lifecycle/negative cases were executed at an earlier candidate with all 57 runtime module bytes identical to the final candidate. An explicit byte bridge preserves that scope; these are not falsely described as fresh reruns of every case at the final commit. The final source artifact itself received a fresh native install and full regression run.
+The reference platform remains Rocky Linux 10.2 amd64 with the [documented resources and prerequisites](platform.md). Supplementary remaining sequential signing/lifecycle tests used a bounded 6 GiB guest; that does not lower the supported resource profile or imply a 6 GiB image-build qualification. The new signing identity was enrolled on a fresh installation, not rotated over existing trust or achieved by editing audit/nonce records. Earlier failed attempts, harness defects and startup/cold-image timeouts remain retained in private evidence; they are not counted as passing tests.
 
-## Boundaries that remain explicit
+## Limits and pending release gates
 
-Manual human-TTY signing interaction and the optional EVTX installation profile were NOT RUN. Synthetic cryptographic signing does not establish human approval. The prescribed disclosure wrapper resources were unavailable; a qualified, explicitly named equivalent using pinned official Betterleaks 1.9.0 supplied the selected-text and separately reviewed distribution-history evidence. It is not a claim that the unavailable wrapper ran or that every possible secret/disclosure class can be detected.
+Public anonymous acquisition cannot pass before source/assets are published; verify exact commit, archive and checksum delivery at publication. Final independent release review and joint disposition of its findings remain required before publication. No hosted Actions were enabled or run, and public/fork code must never gain private credentials or trusted lab execution.
 
-No hosted Actions were executed or added. Public/fork code must not gain access to private credentials or trusted self-hosted execution. No broad platform, Internet-exposure, Windows-process-analysis or general data-recovery qualification follows from these results.
+In-place cross-version upgrade is unsupported for this first public release. Optional EVTX installation and adding a new provider were not exercised as baseline acceptance; named desktop-client certification is not implied by the reference SSH transport tests. Full image construction still requires independently authorized exact Windows symbols; no symbol-free full image or permission to redistribute symbols, dumps or built images is supplied. Source-only MIT and component-specific Volatility terms remain explicit in the [dependency and licensing instructions](dependencies.md).
 
-Earlier timeouts, an old-kernel filesystem failure and the reproduced cold-start cleanup race were retained and addressed with bounded evidence. The qualified runtime deliberately preserves uncertainty rather than declaring cleanup from a killed process alone. Results do not establish a universal kernel fix or an off-drive disaster-recovery guarantee.
-
-Source-only licensing review does not clear redistribution of built images, symbols or dumps. Exact preferred-form integration source and notices must be accessible before matching source assets are published. Publication, visibility and source-asset approvals are separate from technical qualification.
-
-## Reader-instruction qualification
-
-The detailed source-only operator manual was added after the recorded implementation qualification. Prior passes are retained at their original scope; they do not count as executing these new reader instructions. [The documentation-led checklist](reader-validation.md) records all new clean-host rows NOT RUN and identifies optional dependency, symbol-entitlement, human-signing and target-specific maintenance gaps. This new reader-experience release requirement remains open.
-
-This corrected candidate changes only `operator_sign.py` among the 57 manifest modules: its prompt is visible and all three terminal streams must be interactive. The other 56 modules retain their qualified bytes. The two Windows staging helpers require an explicit endpoint and login; see [the source integration bridge](source-integration.md) for the precise controller-interface change and validation scope.
+All live work was confined to disposable approved test targets. The accepted deployment remained unchanged; test disks, keys and evidence were retained, with the QA VM stopped and test listener closed. Do not infer production restore, Internet exposure, general Windows process analysis or universal data-recovery support from these results.

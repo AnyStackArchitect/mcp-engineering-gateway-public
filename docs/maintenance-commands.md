@@ -35,17 +35,18 @@ for a in (g,w):
 assert w['name']=='rocky-eng-worker' and w['home']=='/home/rocky-eng-worker'
 print('SITE_IDENTITIES_MATCH')
 PY
-worker() {
+worker() (
+  cd / || exit 1
   /usr/sbin/runuser -u "$WORKER_NAME" -- /usr/bin/env -i \
     HOME="$WORKER_HOME" PATH=/usr/bin:/bin LANG=C.UTF-8 \
     XDG_RUNTIME_DIR="/run/user/$WORKER_UID" \
     DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$WORKER_UID/bus" "$@"
-}
+)
 worker /usr/bin/systemctl --user show "$UNIT" --property=MainPID,ActiveState,SubState,UnitFileState
 worker /usr/bin/journalctl --user -u "$UNIT" --no-pager -n 100 > "$PRIVATE_OUTPUT/worker-journal.txt"
 ```
 
-Require SITE_IDENTITIES_MATCH, the reviewed unit and expected live/disabled state. This uses the same user-manager environment as native activation; root's own `systemctl --user` would inspect the wrong manager. If the retained journal, account or manager is missing/changed, stop. Keep journal output private; command arguments and excerpts may be sensitive. The initial root-private transaction/source ancestry and hashes must already have passed installer/audit verification.
+Require SITE_IDENTITIES_MATCH, the reviewed unit and expected live/disabled state. The function runs in a subshell from `/`, so the worker never needs access to the administrator's private staging/current directory and the administrator's working directory stays unchanged. This uses the same user-manager environment as native activation; root's own `systemctl --user` would inspect the wrong manager. If the retained journal, account or manager is missing/changed, stop. Keep journal output private; command arguments and excerpts may be sensitive. The initial root-private transaction/source ancestry and hashes must already have passed installer/audit verification.
 
 ## 2. Quiesce — state-changing, stop before uncertain cleanup
 

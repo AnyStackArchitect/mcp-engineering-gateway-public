@@ -22,7 +22,7 @@ Compared with the earlier qualified implementation `6aa2aaf5cc77decbe376b691c87e
 ## Recorded validation
 
 - Linux-native regression: 908 scheduled, 907 passed, one intentional nonroot-profile skip; the root-only refusal check passed separately. The recorded kernel and native dependency inventory bind the supported profile; this is not a broad Linux compatibility claim.
-- Windows-native distribution and installer fixtures: 21 and 82 respectively; seven source/MCP smokes and 17 fixed-provider vectors, including expected partial/refusal outcomes. Fixtures and mocks are identified separately from live tests.
+- Windows-native distribution and installer fixtures: 23 and 82 respectively; seven source/MCP smokes and 17 fixed-provider vectors, including expected partial/refusal outcomes. Fixtures and mocks are identified separately from live tests.
 - Fresh native installation from the tested artifact, interrupted preparation/rollback and collision refusal; independent public-trust enrollment; SELinux Enforcing, separate gateway/worker identities, isolation and unchanged resource limits.
 - Actual SSH/MCP initialization, discovery of 44 default tools and invocation; literal Windows staging of a synthetic 119-byte log, SHA-256 verification, registration, indexing, search and queued case verification.
 - Actual human encrypted-key signing in a native terminal, approved execution with verified output bytes/hash, denied execution, invalid signature refusal without state change, consumed-grant replay refusal, natural grant expiry and reboot of an observed running container. The interrupted job recovered conservatively; the native installed audit passed with three consumed nonces.

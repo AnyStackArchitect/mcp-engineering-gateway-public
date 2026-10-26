@@ -1,4 +1,4 @@
-import hashlib,importlib.util,json,tempfile,unittest,zipfile
+import re,hashlib,importlib.util,json,tempfile,unittest,zipfile
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
@@ -39,4 +39,38 @@ class Packaging(unittest.TestCase):
  def test_tampered_file_refused(self):
   base,root,paths,entries=self.fixture();(root/'tool.py').write_text('tampered')
   with self.assertRaises(ValueError):pkg.verify()
+
+SUMMARY_PATHS=('README.md','docs/client-first-analysis.md','docs/install-from-source.md')
+def qualification_consistency(documents):
+ # Current summaries must disclose the destination exception, not imply all
+ # final changes are prose or all executable commands have identical bytes.
+ for path in (*SUMMARY_PATHS,'docs/qualification.md'):
+  text=' '.join(documents[path].lower().split())
+  if re.search(r'final.{0,40}(?:documentation|docs)[ -]only.{0,35}(?:bridge|archive|artifact|candidate)',text):
+   raise ValueError(path+': misleading final documentation-only claim')
+  if re.search(r'(?:all|every)[^.]{0,100}executable[^.]{0,100}(?:identical|unchanged)',text):
+   raise ValueError(path+': blanket executable identity claim')
+  if path in SUMMARY_PATHS and 'destination-delta qualification bridge' not in text:
+   raise ValueError(path+': missing explicit destination bridge')
+ canonical=documents['docs/qualification.md'].lower()
+ for required in ('57 runtime modules','provenance','clone url','43 of 44','no fresh live installation, human signing or full native regression suite'):
+  if required not in canonical:raise ValueError('qualification.md: missing scoped evidence: '+required)
+
+class QualificationConsistency(unittest.TestCase):
+ def current(self):return {p:(ROOT/p).read_text(encoding='utf8') for p in (*SUMMARY_PATHS,'docs/qualification.md')}
+ def test_current_reader_summaries_and_canonical_bridge(self):
+  qualification_consistency(self.current())
+ def test_stale_summary_and_canonical_fixtures_are_rejected(self):
+  current=self.current()
+  for path in SUMMARY_PATHS:
+   with self.subTest(path=path):
+    fixture=dict(current);fixture[path]=fixture[path].replace('explicit destination-delta qualification bridge','final documentation-only evidence bridge')
+    with self.assertRaisesRegex(ValueError,'misleading'):qualification_consistency(fixture)
+  for stale in ('The final docs-only byte bridge proves this archive.','All installer/build/provider code and executable reader commands remain identical.'):
+   with self.subTest(stale=stale):
+    fixture=dict(current);fixture['docs/qualification.md']+='\n'+stale
+    with self.assertRaises(ValueError):qualification_consistency(fixture)
+  fixture=dict(current);fixture['docs/qualification.md']=fixture['docs/qualification.md'].replace('clone URL','repository address')
+  with self.assertRaisesRegex(ValueError,'missing scoped evidence'):qualification_consistency(fixture)
+
 if __name__=='__main__':unittest.main()

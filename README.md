@@ -61,7 +61,7 @@ The implementation includes site inventory/planning, source and OCI verification
 
 The qualified host is **Rocky Linux 10.2 amd64**, running kernel `6.12.0-211.68.1.el10_2.x86_64`, with SELinux Enforcing and cgroup v2. Dependencies and signing identity are established by the operator. Fixed queued analysis needs the gateway-account processor; the separate signed worker has qualified boot persistence. [Platform](docs/platform.md) · [Installation path](docs/installation.md) · [First use](docs/first-use.md) · [Architecture and trust](docs/architecture.md).
 
-Recorded validation includes 908 tests (907 passed, one intentional skip; root refusal passed separately), 21 distribution tests, 82 installer fixtures, seven MCP smokes and real installation/execution/recovery/lifecycle checks. Those scopes do not imply every registered tool was exercised live on every input. [Exact candidate and qualification boundaries](docs/qualification.md).
+Recorded validation includes 908 tests (907 passed, one intentional skip; root refusal passed separately), 23 distribution tests, 82 installer fixtures, seven MCP smokes and real installation/execution/recovery/lifecycle checks. Those scopes do not imply every registered tool was exercised live on every input. [Exact candidate and qualification boundaries](docs/qualification.md).
 
 ## Extending Phase I and the Phase II direction
 
@@ -73,6 +73,6 @@ Phase II is intended to add further analysis-tool integrations separately. It is
 
 ## Build, install and use from source
 
-For the source-only release, use the [detailed operator manual](docs/install-from-source.md), [complete dependency instructions](docs/dependencies.md), [client and synthetic first-analysis tutorial](docs/client-first-analysis.md), and [operations runbook](docs/operations-runbook.md). Publication is still pending. The [reader-led validation checklist](docs/reader-validation.md) distinguishes executed baseline instructions, the final documentation-only evidence bridge, optional unexecuted profiles and pending public-download verification.
+For the source-only release, use the [detailed operator manual](docs/install-from-source.md), [complete dependency instructions](docs/dependencies.md), [client and synthetic first-analysis tutorial](docs/client-first-analysis.md), and [operations runbook](docs/operations-runbook.md). Publication is still pending. The [reader-led validation checklist](docs/reader-validation.md) distinguishes executed baseline instructions, the explicit destination-delta qualification bridge, optional unexecuted profiles and pending public-download verification.
 
 This corrected candidate changes only `operator_sign.py` among the 57 manifest modules: its prompt is visible and all three terminal streams must be interactive. The other 56 modules retain their qualified bytes. The two Windows staging helpers require an explicit endpoint and login; see [the source integration bridge](docs/source-integration.md) for the precise controller-interface change and validation scope.

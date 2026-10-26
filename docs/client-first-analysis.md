@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Install](install-from-source.md) / [Trust/signing](configuration-trust.md) / [Tool catalog](tool-catalog.md)
 
-This executable tutorial is for a newly approved installation of the matching source release. **The baseline reader sequence passed for the tested source artifact; see the exact scope and final documentation-only bridge in [qualification](qualification.md).** Use a verified complete source checkout and a separately approved installed target; reading this tutorial grants no host or signing approval. The snippets follow implemented schemas and use synthetic inputs only. Run on the measured Windows PowerShell 5.1 controller unless a section explicitly says otherwise. Do not execute host mutations merely to review the document.
+This executable tutorial is for a newly approved installation of the matching source release. **The baseline reader sequence passed for the tested source artifact; see the exact scope and explicit destination-delta qualification bridge in [qualification](qualification.md).** Use a verified complete source checkout and a separately approved installed target; reading this tutorial grants no host or signing approval. The snippets follow implemented schemas and use synthetic inputs only. Run on the measured Windows PowerShell 5.1 controller unless a section explicitly says otherwise. Do not execute host mutations merely to review the document.
 
 ## 1. Configure SSH stdio in your client
 

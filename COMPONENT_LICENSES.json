@@ -228,9 +228,9 @@
   ],
   "public_source_condition": {
     "status": "PRIVATE_PENDING_SEPARATE_PUBLIC_VISIBILITY_GO",
-    "intended_repository": "https://github.com/AnyStackArchitect/Mcp-eng-gw-public",
-    "prepared_branch": "prepare/phase1-reader-signing-fix",
-    "prepared_source_url": "https://github.com/AnyStackArchitect/Mcp-eng-gw-public/tree/prepare/phase1-reader-signing-fix",
+    "intended_repository": "https://github.com/AnyStackArchitect/mcp-engineering-gateway-public",
+    "prepared_branch": "main",
+    "prepared_source_url": "https://github.com/AnyStackArchitect/mcp-engineering-gateway-public/tree/main",
     "release_rule": "At external distribution, make exact released revision, covered editable preferred-form source, scope map, license text and notices freely accessible. This prepared branch is not claimed public; private push/local commit is insufficient."
   },
   "generated_script_redistribution": {

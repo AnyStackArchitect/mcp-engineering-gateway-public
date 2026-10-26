@@ -40,7 +40,7 @@ def build(output):
   with zipfile.ZipFile(stream,'w',compression=zipfile.ZIP_STORED) as z:
    for name in sorted(set(entries)|{'SHA256SUMS.txt'}):
     info=zipfile.ZipInfo('source/'+name,(2026,10,23,0,0,0));info.create_system=3;info.compress_type=zipfile.ZIP_STORED;info.external_attr=0o100644<<16;z.writestr(info,snapshot[name])
-   info=zipfile.ZipInfo('provenance.json',(2026,10,23,0,0,0));info.create_system=3;info.external_attr=0o100644<<16;z.writestr(info,json.dumps({'repository':'AnyStackArchitect/Mcp-eng-gw-public','commit':commit,'source_manifest_sha256':sha(snapshot['SHA256SUMS.txt']),'contains_image_blobs':False,'image_delivery':'operator-build; see docs/IMAGE.md'},sort_keys=True)+'\n')
+   info=zipfile.ZipInfo('provenance.json',(2026,10,23,0,0,0));info.create_system=3;info.external_attr=0o100644<<16;z.writestr(info,json.dumps({'repository':'AnyStackArchitect/mcp-engineering-gateway-public','commit':commit,'source_manifest_sha256':sha(snapshot['SHA256SUMS.txt']),'contains_image_blobs':False,'image_delivery':'operator-build; see docs/IMAGE.md'},sort_keys=True)+'\n')
  return {'status':'DISTRIBUTION_PACKAGE_PASS','commit':commit,'bytes':output.stat().st_size,'sha256':sha(output.read_bytes()),'source_manifest_sha256':sha(snapshot['SHA256SUMS.txt'])}
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--output',type=Path);args=p.parse_args()

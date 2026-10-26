@@ -26,7 +26,7 @@ class Packaging(unittest.TestCase):
   self.assertEqual(a['sha256'],b['sha256'])
   with zipfile.ZipFile(base/'one.zip') as z:
    for p,h in entries.items():self.assertEqual(hashlib.sha256(z.read('source/'+p)).hexdigest(),h)
-   self.assertEqual(json.loads(z.read('provenance.json'))['repository'],'AnyStackArchitect/Mcp-eng-gw-public')
+   self.assertEqual(json.loads(z.read('provenance.json'))['repository'],'AnyStackArchitect/mcp-engineering-gateway-public')
  def test_post_verify_mutation_refused_before_archive(self):
   base,root,paths,entries=self.fixture()
   def altered():

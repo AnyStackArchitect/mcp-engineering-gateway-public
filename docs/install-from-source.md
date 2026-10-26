@@ -22,7 +22,7 @@ The full release needs a Git checkout for the package and site-bundle builders. 
 On a controller with trusted Git, Python and SSH, from a new workspace parent (Bash example):
 
 ```sh
-git clone https://github.com/AnyStackArchitect/Mcp-eng-gw-public.git mcp-eng-source
+git clone https://github.com/AnyStackArchitect/mcp-engineering-gateway-public.git mcp-eng-source
 cd mcp-eng-source
 git checkout --detach "$RELEASE_COMMIT"
 git rev-parse HEAD

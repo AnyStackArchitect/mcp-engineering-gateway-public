@@ -30,11 +30,11 @@
       ],
       "security_limits_changed": false,
       "database_schema_changed": false,
-      "qualification": "Exact source17adbaa native regression, fresh installed audit and actual human encrypted-key signing passed; final documentation-only candidate retains these exact runtime bytes."
+      "qualification": "Exact source17adbaa native regression, fresh installed audit and actual human encrypted-key signing passed; final destination-bound source retains these exact runtime bytes."
     }
   ],
   "image_delivery": "Operator build from pinned public inputs; no OCI layers, symbols or dumps redistributed",
-  "clean_host_acceptance": "Source17adbaa exact artifact passed fresh installation, SSH/MCP first use, actual human encrypted-key signing, negative/replay/expiry/reboot and populated signed-history isolated recovery/retained-state retirement. Final status-documentation/checksum changes use an unchanged-executable-byte bridge, not a second fresh installation of the final documentation-only ZIP. See docs/qualification.md; public delivery and final independent release review remain pending.",
+  "clean_host_acceptance": "Source17adbaa exact artifact passed fresh installation, SSH/MCP first use, actual human encrypted-key signing, negative/replay/expiry/reboot and populated signed-history isolated recovery/retained-state retirement. All 57 runtime modules, installer/provider execution behavior and image inputs remain identical to the installed/tested source17adbaa baseline. Later destination binding changes the package builder's repository/provenance literal and its test expectation, component source references, and one reader clone URL; the other 43 of 44 fenced reader command blocks remain byte-identical. Documentation, release metadata and source checksums also changed. Local distribution tests, source closure, links, disclosure/privacy checks and deterministic builds from the new remote validate this bounded delta. No fresh live installation, human signing or full native regression suite was run for the destination or wording changes. See docs/qualification.md; public delivery and final independent release review remain pending.",
   "license_clearance": "See docs/LICENSING.md",
   "private_evidence_included": false,
   "runtime_modules_unchanged_from_accepted_baseline": 55,
@@ -60,7 +60,7 @@
     "runtime_modules_identical_to_predecessor": 56,
     "runtime_manifest_sha256": "37049b5a30416872849997175d511f3b1298e295efc2f87055c220a539f5fb05",
     "executable_behavior_changed": true,
-    "reader_procedure_execution": "BASELINE_PASS_SOURCE17ADBAA_EXACT_ARTIFACT_FINAL_DOCUMENTATION_ONLY_BRIDGE",
+    "reader_procedure_execution": "BASELINE_PASS_SOURCE17ADBAA_EXACT_ARTIFACT_EXPLICIT_DESTINATION_DELTA_BRIDGE",
     "identity_rule": "The package provenance commit and external candidate manifest bind the exact combined commit/tree/archive; predecessor hashes are not the combined artifact identity.",
     "linux_runtime_behavior_changed": true,
     "public_history_boundary": "Existing merged documentation history plus an allowlisted source export; unpublished source-preparation history excluded",
@@ -71,7 +71,7 @@
       ],
       "change": "Require explicit RemoteHost/RemoteUser; use canonical /opt/rocky-eng default; no configured publisher endpoint or login",
       "unchanged": "Explicit valid endpoint/login/install invocations and staging/reservation/recovery semantics;56manifest modules retain predecessor bytes, with signer terminal handling tracked separately",
-      "required_proof": "Native parameter/mocked fixtures and actual literal Windows SSH staging passed; final documentation-only changes preserve both helper files and executable reader commands."
+      "required_proof": "Native parameter/mocked fixtures and actual literal Windows SSH staging passed. Both helper files remain identical; reader command exceptions are explicitly described in docs/qualification.md."
     },
     "gateway_worker_execution_behavior_changed": false,
     "off_host_signer_behavior_changed": true
@@ -93,6 +93,7 @@
     "human_terminal_signing": "PASS",
     "signed_history_isolated_restore": "PASS",
     "cross_version_upgrade": "UNSUPPORTED_FIRST_PUBLIC_RELEASE",
-    "final_documentation_status_correction": "All runtime/installer/provider/image-input bytes and executable reader commands unchanged; final external manifest binds archive identity and repeated artifact checks."
+    "final_documentation_status_correction": "Historical documentation-only status correction; later destination binding is separately scoped below.",
+    "final_destination_bridge": "All 57 runtime modules, installer/provider execution behavior and image inputs remain identical to the installed/tested source17adbaa baseline. Later destination binding changes the package builder's repository/provenance literal and its test expectation, component source references, and one reader clone URL; the other 43 of 44 fenced reader command blocks remain byte-identical. Documentation, release metadata and source checksums also changed. Local distribution tests, source closure, links, disclosure/privacy checks and deterministic builds from the new remote validate this bounded delta. No fresh live installation, human signing or full native regression suite was run for the destination or wording changes."
   }
 }

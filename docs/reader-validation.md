@@ -2,7 +2,7 @@
 
 [Index](index.md) / [Install](install-from-source.md) / [First analysis](client-first-analysis.md) / [Qualification](qualification.md)
 
-**Baseline reader rehearsal: PASS for the tested source17adbaa artifact**, with the explicit scopes and final documentation-only bridge in [qualification](qualification.md). Final independent release review and public source/download verification remain pending. Historical evidence and unsuccessful attempts retain their original identities; optional and unsupported rows below are not promoted to passes.
+**Baseline reader rehearsal: PASS for the tested source17adbaa artifact**, with the explicit scopes and explicit destination-delta bridge in [qualification](qualification.md). Final independent release review and public source/download verification remain pending. Historical evidence and unsuccessful attempts retain their original identities; optional and unsupported rows below are not promoted to passes.
 
 ## Traceable sequence
 
@@ -39,9 +39,9 @@ A clean source-only release also needs public source/assets and license obligati
 - Current image context mandates exact authorized Windows symbols. No qualified symbol-free image build is supplied. An operator without entitlement cannot complete that full profile; this needs a bounded rights/scope resolution, not a silent capability deletion.
 - Optional EVTX has pinned acquisition and an isolated wheel build procedure, but a qualified system-interpreter installation/RPM and its full build closure remain missing. It is not part of base acceptance.
 - Current lifecycle tooling plans live maintenance but does not automate it. [Parameterized source-bound maintenance commands](maintenance-commands.md) are supplied; the chosen values, current-ledger compatibility and actual execution still require approved target-specific rehearsal.
-- Actual human signing and baseline reader walkthrough passed at the tested artifact; final documentation-only bytes use the explicit qualification bridge, not a fictional second install.
+- Actual human signing and baseline reader walkthrough passed at the tested artifact; final destination-bound source uses the explicit qualification bridge, not a fictional second install.
 - Windows OpenSSL executable distribution/provenance must be selected and verified by the operator; the project has not certified a generic binary installer or every MCP client's configuration schema.
 
 ## Review and execution are different gates
 
-Independent documentation review can establish command names, source contracts, role boundaries and honest expected observations without changing a host. It cannot establish that these exact instructions work end to end. The tested baseline package passed the scoped rows above; the final documentation-only artifact requires closure/disclosure/review and its executable-byte bridge. DOC-09 and DOC-14 are optional and must not reopen baseline scope. No publication/visibility permission is needed just to rehearse a staged proposed package in an approved isolated target. Actual public acquisition remains a later publication verification. Local source integration has been approved and performed; the bounded disposable-target rehearsal was approved and completed. Further host changes and publication remain separately gated.
+Independent documentation review can establish command names, source contracts, role boundaries and honest expected observations without changing a host. It cannot establish that these exact instructions work end to end. The tested baseline package passed the scoped rows above; the final destination-bound artifact requires closure/disclosure/review and its scoped runtime/command bridge. DOC-09 and DOC-14 are optional and must not reopen baseline scope. No publication/visibility permission is needed just to rehearse a staged proposed package in an approved isolated target. Actual public acquisition remains a later publication verification. Local source integration has been approved and performed; the bounded disposable-target rehearsal was approved and completed. Further host changes and publication remain separately gated.

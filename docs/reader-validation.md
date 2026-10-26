@@ -20,7 +20,8 @@
 | DOC-10 | Unsupported host, collision, interrupted preparation/recovery | Baseline failure semantics | Approved disposable target/transactions and bounded failure-injection actions; fixture results retain narrower scope. | NOT RUN |
 | DOC-11 | Isolation, interruption and reboot/postboot/replay | Baseline | Approved disposable host interruption/reboot scope with exact PID/unit, recovery plan and no unrelated workloads. | NOT RUN |
 | DOC-12 | Quiesced backup and isolated restore/hash/DB validation | Baseline lifecycle | Approved maintenance/read/capture budget and separate new restore directory; live recovered startup needs an approved stopped recovery layout/current-ledger review. | NOT RUN |
-| DOC-13 | Compatible code-only update and retained-state retirement | Baseline lifecycle | Approved exact prior/new manifests, stopped disposable site, rollback copies and explicit update/uninstall scope. | NOT RUN |
+| DOC-13 | Same-byte preservation mechanics and retained-state retirement | Baseline lifecycle | Approved exact identical manifests, stopped disposable site, rollback copies and explicit uninstall scope. No version-changing upgrade claim. | NOT RUN |
+| DOC-13U | In-place cross-version upgrade | Unsupported for first public release | No supported older public version or qualified migration procedure. Fresh installation only; never rewrite native transaction/audit history. | NOT APPLICABLE to the supported first-release profile; NOT RUN |
 | DOC-14 | Add and test a fixed provider in a development fork | Optional developer exercise | Separate source-fork change/qualification request. Do not add a new feature merely to qualify baseline Phase I. | NOT RUN, optional |
 
 

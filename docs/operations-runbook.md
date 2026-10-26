@@ -49,7 +49,9 @@ For uncertain startup, same-boot automatic recovery deliberately refuses. A sepa
 
 No generic live backup/restore CLI is shipped. The [parameterized capture/isolated-restore transcript](maintenance-commands.md) must be bound to the actual site and rehearsed on the approved isolated target before relying on it. Live restoration over active state remains deliberately unsupported. Existing synthetic fixtures and previous populated-store restoration do not qualify a newcomer following this revised procedure. RPO/RTO, production restore, private-key recovery and arbitrary crash durability are not promised.
 
-## Update — code-only compatible path
+## Update boundary - no supported cross-version upgrade
+
+This is the first public release: fresh installation is the supported deployment path. In-place cross-version upgrade is unsupported and unqualified. The following read-only planner and stopped-site code-copy template describe preservation mechanics; they do not provide migration provenance or qualify a different-byte installation. Retain the original installation transaction and never rewrite it to make native audit accept a new version. A future supported upgrade needs its own version-pair procedure and qualification.
 
 From the verified matching new source root, with authorized read access and existing private output directory, generate a plan (read-only):
 
